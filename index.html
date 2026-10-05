@@ -1,0 +1,934 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="description" content="Licences, branding, online ordering, marketing and content services for people who want to earn from cooking. India, the United States and other countries.">
+<meta property="og:title" content="Kitchen Launch">
+<meta property="og:description" content="Get paid for the food you already cook. Every step to start a food business, with its cost.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E6A80C'/%3E%3Cpath d='M10 6h12v4H10zM8 10h16v6H8zM8 16h16v6H8zM10 22h12v4H10z' fill='none' stroke='%23241A00' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Kitchen Launch</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Figtree:wght@400;500;600;700&family=Tiro+Devanagari+Hindi&display=swap">
+<style>
+/* Layout: one sticky bar with a country switch and five views; the roadmap is drawn as a stacked steel food carrier, one tier per stage. */
+:root{
+  --bg:#EDF1EE; --surface:#FBFCFB; --steel:#DEE5E0; --line:#C3CEC7;
+  --ink:#12241C; --muted:#52645B;
+  --accent:#E6A80C; --accent-ink:#241A00;
+  --leaf:#1C6A48; --leaf-ink:#FFFFFF; --leaf-soft:#DCEDE3;
+  --chilli:#B4381F; --chilli-soft:#F6E1DB;
+  --display:"Bricolage Grotesque","Trebuchet MS",system-ui,sans-serif;
+  --body:"Figtree",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --hindi:"Tiro Devanagari Hindi","Noto Sans Devanagari",serif;
+  --r:14px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#0C1310; --surface:#141D19; --steel:#1D2924; --line:#30413A;
+    --ink:#E7EEEA; --muted:#9AAAA1;
+    --accent:#F1B52B; --accent-ink:#241A00;
+    --leaf:#62C99A; --leaf-ink:#06231A; --leaf-soft:#173328;
+    --chilli:#F08670; --chilli-soft:#3A1D16;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#0C1310; --surface:#141D19; --steel:#1D2924; --line:#30413A;
+  --ink:#E7EEEA; --muted:#9AAAA1;
+  --accent:#F1B52B; --accent-ink:#241A00;
+  --leaf:#62C99A; --leaf-ink:#06231A; --leaf-soft:#173328;
+  --chilli:#F08670; --chilli-soft:#3A1D16;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16px;line-height:1.5}
+h1,h2,h3{font-family:var(--display);line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--leaf);outline-offset:2px}
+.num{font-variant-numeric:tabular-nums}
+
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line)}
+.top-in{max-width:1120px;margin:0 auto;padding:10px 16px;display:flex;align-items:center;gap:10px 14px;flex-wrap:wrap}
+.brand{display:flex;align-items:baseline;gap:8px;text-decoration:none;color:var(--ink)}
+.brand b{font-family:var(--display);font-size:21px;font-weight:800;letter-spacing:-.02em}
+.brand span{font-family:var(--hindi);color:var(--leaf);font-size:17px}
+.country{display:flex;align-items:center;gap:5px;color:var(--muted);font-size:13.5px;font-weight:600}
+.country svg{width:15px;height:15px;flex:none}
+.country select{border:0;background:transparent;color:var(--muted);font-weight:600;font-size:13.5px;padding:4px 2px;cursor:pointer;max-width:150px}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+.tabs{display:flex;gap:4px;overflow-x:auto;margin-left:auto;min-width:0;max-width:100%}
+@media (max-width:760px){.country{margin-left:auto}.tabs{order:3;flex-basis:100%;margin-left:0}}
+.tabs a{white-space:nowrap;text-decoration:none;color:var(--muted);font-weight:600;font-size:14.5px;padding:8px 12px;border-radius:999px}
+.tabs a[aria-current="page"]{background:var(--ink);color:var(--bg)}
+.tabs a .count{display:inline-block;min-width:20px;text-align:center;margin-left:6px;padding:0 6px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-size:12.5px}
+
+main{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:28px 64px}
+.view{display:grid;gap:32px}
+.lede{color:var(--muted);max-width:62ch}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--leaf)}
+.sec-head{display:grid;gap:8px}
+.sec-head h2{font-size:clamp(26px,4vw,36px);font-weight:700}
+
+.hero{display:grid;gap:14px}
+.hero h1{font-size:clamp(36px,7.4vw,74px);font-weight:800;letter-spacing:-.035em;max-width:14ch}
+.hero h1 em{font-style:normal;background:var(--accent);color:var(--accent-ink);padding:0 .14em;border-radius:.12em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero .lede{font-size:18px}
+
+.paths{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:10px}
+.path{display:grid;gap:6px;text-align:left;background:var(--surface);border:1.5px solid var(--line);border-radius:var(--r);padding:14px;cursor:pointer}
+.path svg{width:30px;height:30px;color:var(--leaf)}
+.path b{font-family:var(--display);font-size:17.5px}
+.path small{color:var(--muted);font-size:13.5px;line-height:1.35}
+.path[aria-pressed="true"]{border-color:var(--ink);background:var(--ink);color:var(--bg)}
+.path[aria-pressed="true"] small{color:var(--steel)}
+.path[aria-pressed="true"] svg{color:var(--accent)}
+
+.build{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start}
+@media (max-width:820px){.build{grid-template-columns:minmax(0,1fr)}}
+.qs{display:grid;gap:20px}
+fieldset{border:0;padding:0;margin:0;display:grid;gap:8px;min-width:0}
+legend{font-weight:700;padding:0;margin-bottom:8px}
+.opt{display:flex;gap:10px;align-items:flex-start;padding:9px 11px;border:1px solid var(--line);border-radius:10px;background:var(--surface);cursor:pointer;font-size:14.5px}
+.opt input{margin-top:3px;accent-color:var(--leaf)}
+.opt:has(input:checked){border-color:var(--leaf);background:var(--leaf-soft)}
+
+.carrier{display:grid;gap:3px;min-width:0}
+.handle{width:132px;height:24px;margin:0 auto;border:4px solid var(--line);border-bottom:0;border-radius:66px 66px 0 0}
+.tier{background:var(--surface);border:1px solid var(--line);border-radius:4px;padding:16px;display:grid;gap:12px}
+.tier.first{border-radius:20px 20px 4px 4px}
+.tier.last{border-radius:4px 4px 20px 20px}
+.tier-head{display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.tier-head span{font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--muted)}
+.tier-head h3{font-size:20px;font-weight:700}
+.tier-note{color:var(--muted);font-size:14.5px}
+.rows{display:grid}
+.row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;align-items:center;padding:11px 0;border-top:1px solid var(--steel)}
+@media (max-width:520px){.row{grid-template-columns:minmax(0,1fr)}}
+.row-main{display:grid;gap:3px;min-width:0}
+.row-title{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-weight:600}
+.row-why{color:var(--muted);font-size:14px}
+.row-side{display:flex;gap:10px;align-items:center}
+.price{font-weight:700;white-space:nowrap}
+.price small{font-weight:500;color:var(--muted)}
+.tag{font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:2px 7px;border-radius:5px}
+.tag.must{background:var(--chilli-soft);color:var(--chilli)}
+.tag.good{background:var(--steel);color:var(--muted)}
+.carrier-foot{display:flex;gap:12px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding-top:14px}
+
+.btn{border:1.5px solid var(--ink);background:transparent;border-radius:999px;padding:7px 14px;font-weight:700;font-size:14px;cursor:pointer;white-space:nowrap}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.on{background:var(--leaf);border-color:var(--leaf);color:var(--leaf-ink)}
+.btn.big{padding:11px 20px;font-size:15.5px}
+.btn.quiet{border-color:var(--line);color:var(--muted)}
+
+.filters{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.chip{border:1px solid var(--line);background:var(--surface);border-radius:999px;padding:6px 13px;font-size:14px;font-weight:600;cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--ink);color:var(--bg);border-color:var(--ink)}
+.search{flex:1 1 200px;min-width:0;padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:16px;display:grid;gap:10px;align-content:start;min-width:0}
+.card h3{font-size:19px;font-weight:700}
+.card p{color:var(--muted);font-size:14.5px}
+.card ul{margin:0;padding-left:18px;font-size:14px;display:grid;gap:3px}
+.meta{display:flex;gap:6px 14px;flex-wrap:wrap;font-size:13.5px;color:var(--muted)}
+.card-foot{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-top:4px}
+.cat-label{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--leaf)}
+
+.tools{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px;align-items:start}
+.fields{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px}
+.field{display:grid;gap:4px;font-size:13.5px;font-weight:600;min-width:0}
+.field input,.field select,.field textarea{padding:9px 11px;border:1px solid var(--line);border-radius:9px;background:var(--bg);font-weight:500;font-size:15px;width:100%;min-width:0}
+.result{background:var(--ink);color:var(--bg);border-radius:12px;padding:16px;display:grid;gap:12px}
+.result .bigfig{font-family:var(--display);font-size:clamp(28px,6vw,42px);font-weight:800;line-height:1.05}
+.result dl{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:6px 14px;margin:0;font-size:14.5px}
+.result dt{opacity:.75}
+.result dd{margin:0;font-weight:700;text-align:right}
+.result .warn{color:var(--accent);font-size:14px}
+.doc-list{margin:0;padding-left:18px;font-size:14.5px;display:grid;gap:3px}
+
+.plan{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(0,1fr);gap:24px;align-items:start}
+@media (max-width:820px){.plan{grid-template-columns:minmax(0,1fr)}}
+.totals{display:grid;gap:6px;padding-top:12px;border-top:2px solid var(--ink)}
+.totals div{display:flex;justify-content:space-between;gap:12px}
+.totals .grand{font-family:var(--display);font-size:24px;font-weight:800}
+.empty{border:1.5px dashed var(--line);border-radius:var(--r);padding:26px;color:var(--muted);display:grid;gap:12px;justify-items:start}
+.note{font-size:13.5px;color:var(--muted)}
+.out{width:100%;min-height:220px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);font-size:14px;line-height:1.45}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin:0;padding:0;list-style:none;counter-reset:step}
+.steps li{display:grid;gap:6px;align-content:start;counter-increment:step;border-top:2px solid var(--ink);padding-top:12px}
+.steps li::before{content:counter(step);font-family:var(--display);font-weight:800;font-size:30px;line-height:1;color:var(--leaf)}
+.steps b{font-family:var(--display);font-size:19px}
+.steps span{color:var(--muted);font-size:15px}
+.faq{display:grid;max-width:760px}
+.faq details{border-top:1px solid var(--line);padding:14px 0}
+.faq details:last-child{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;font-weight:700;font-size:16.5px}
+.faq p{color:var(--muted);margin-top:8px;max-width:65ch}
+.send{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.send a.btn{text-decoration:none;color:var(--accent-ink)}
+footer{max-width:1120px;margin:0 auto;padding-inline:16px;padding-block:0 40px;color:var(--muted);font-size:13.5px;display:grid;gap:6px}
+footer a{color:var(--leaf)}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="top-in">
+    <a class="brand" href="#start"><b>Kitchen Launch</b><span lang="hi" id="mark">रसोई</span></a>
+    <nav class="tabs" id="tabs" aria-label="Sections">
+      <a href="#start">Start</a>
+      <a href="#services">Services</a>
+      <a href="#bundles">Bundles</a>
+      <a href="#tools">Tools</a>
+      <a href="#plan">My plan<span class="count num" id="count">0</span></a>
+    </nav>
+    <label class="country"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2.2 2 2.2 11 0 13M8 1.5c-2.2 2-2.2 11 0 13" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span class="sr">Country</span>
+      <select id="country"><option value="in">India</option><option value="us">United States</option><option value="intl">Other countries</option></select></label>
+  </div>
+</header>
+
+<main>
+  <section class="view" id="view-start"></section>
+  <section class="view" id="view-services" hidden></section>
+  <section class="view" id="view-bundles" hidden></section>
+  <section class="view" id="view-tools" hidden></section>
+  <section class="view" id="view-plan" hidden></section>
+</main>
+
+<footer><p id="foot"></p></footer>
+
+<script>
+const CATS = [
+  {id:'legal', name:'Licences & registration'},
+  {id:'brand', name:'Brand & packaging'},
+  {id:'online', name:'Selling online'},
+  {id:'marketing', name:'Marketing'},
+  {id:'ops', name:'Daily operations'},
+  {id:'creator', name:'Content creator'}
+];
+
+/* Each service has shared fields plus an `in` and/or `us` block. A service appears only in countries it has a block for. */
+const S = [
+  // India only
+  {id:'fssai-basic', cat:'legal', per:'once',
+   in:{name:'FSSAI Basic Registration', price:1499, time:'7–10 days', gov:'Govt fee ₹100 per year',
+     blurb:'For food businesses with yearly sales up to ₹12 lakh, including home kitchens.',
+     gets:['Application filed on FoSCoS','Document check and follow-up','14-digit registration certificate']}},
+  {id:'fssai-state', cat:'legal', per:'once',
+   in:{name:'FSSAI State Licence', price:4999, time:'3–6 weeks', gov:'Govt fee ₹2,000–5,000 per year',
+     blurb:'For yearly sales between ₹12 lakh and ₹20 crore.',
+     gets:['Form B application','Kitchen layout and document pack','Inspection support until the licence is issued']}},
+  // USA only
+  {id:'cottage', cat:'legal', per:'once',
+   us:{name:'Cottage Food Permit', price:129, time:'1 day to 4 weeks, by state', gov:'State fee $0 to about $250',
+     blurb:'Sell shelf-stable food made in your home kitchen, under your state\'s cottage food law.',
+     gets:['Check of which foods and sales channels your state allows','Permit or registration filed','Label statement your state requires']}},
+  {id:'health', cat:'legal', per:'once',
+   us:{name:'Health Department Permit', price:399, time:'2–8 weeks', gov:'County fee extra',
+     blurb:'For meals and perishable food, which must come from a permitted kitchen.',
+     gets:['Plan review and permit application','Menu and food-safety plan','Pre-opening inspection prep']}},
+  {id:'handler', cat:'legal', per:'once',
+   us:{name:'Food Handler & Manager Certification', price:49, time:'1–7 days', gov:'Course and exam fees extra',
+     blurb:'The food-safety cards most counties and many cottage food laws require.',
+     gets:['Food handler card for each worker','Certified Food Protection Manager exam booking','Renewal reminders']}},
+  {id:'ins', cat:'legal', per:'once',
+   us:{name:'Liability Insurance Setup', price:59, time:'2–3 days', gov:'Premium paid to the insurer',
+     blurb:'Shared kitchens, farmers markets and catering clients ask for proof of cover.',
+     gets:['Quotes from 3 food-business insurers','General and product liability policy','Certificate of insurance on request']}},
+  // Other countries only
+  {id:'guide', cat:'legal', per:'once',
+   intl:{name:'Licence & Registration Research', price:199, time:'5–7 days', gov:'Government fees extra',
+     blurb:'Food licence, business registration and tax rules are different in every country. We find yours.',
+     gets:['Written checklist of what your country and city require','Applications prepared for you to sign and submit','Label and home-kitchen rules that apply to your food']}},
+  // Both
+  {id:'biz-prop', cat:'legal', per:'once', gets:[],
+   in:{name:'Sole Proprietorship Setup', price:1999, time:'3–5 days', gov:'Udyam registration is free',
+     blurb:'The simplest way to run a business alone under your brand name.',
+     gets:['Udyam (MSME) registration','Help opening a current account','Invoice and receipt format']},
+   us:{name:'Sole Proprietor + DBA Setup', price:79, time:'3–7 days', gov:'DBA filing fee extra',
+     blurb:'Trade under your brand name without forming a company.',
+     gets:['DBA ("doing business as") filing','Free EIN from the IRS','Help opening a business bank account']}},
+  {id:'biz-co', cat:'legal', per:'once',
+   in:{name:'LLP / Pvt Ltd / OPC Registration', price:8999, time:'10–15 days', gov:'Govt and stamp fees extra',
+     blurb:'India has no LLC. An LLP, private limited company or one person company gives the same limited liability.',
+     gets:['Name approval, DSC and DIN','Incorporation certificate, PAN and TAN','Partnership or shareholder agreement draft']},
+   us:{name:'LLC Formation', price:149, time:'3–10 business days', gov:'State filing fee about $35–$500',
+     blurb:'Keeps your home and savings separate from the business if something goes wrong.',
+     gets:['Articles of organization filed with your state','EIN and operating agreement','Registered agent for the first year']}},
+  {id:'tax', cat:'legal', per:'once',
+   in:{name:'GST Registration', price:1499, time:'5–7 working days', gov:'No govt fee',
+     blurb:'Needed once sales cross ₹20 lakh a year for services or ₹40 lakh for goods. Delivery platforms often ask for it.',
+     gets:['GSTIN application','Correct HSN / SAC codes for your menu','First-invoice walkthrough']},
+   us:{name:'Sales Tax Permit', price:79, time:'1–10 days', gov:'Usually free from the state',
+     blurb:'Most states tax prepared food. You collect the tax and pay it to the state.',
+     gets:['Seller\'s permit application','Tax rates set up in your checkout','Filing calendar']}},
+  {id:'local', cat:'legal', per:'once',
+   in:{name:'Trade Licence / Shop & Establishment', price:2499, time:'1–3 weeks', gov:'Fee set by your city or state',
+     blurb:'Local permission to run a commercial kitchen or outlet.',
+     gets:['Application with your municipal body','Document pack','Renewal reminder']},
+   us:{name:'City / County Business License', price:99, time:'1–3 weeks', gov:'Local fee extra',
+     blurb:'The general licence most cities and counties require before you trade.',
+     gets:['Licence application','Home-occupation or zoning check','Renewal reminder']}},
+  {id:'tm', cat:'legal', per:'once', blurb:'Protect your brand name and logo so nobody else can sell under it.',
+   in:{name:'Trademark Filing', price:2999, time:'2–3 days to file', gov:'Govt fee ₹4,500 per class for individuals and MSMEs',
+     gets:['Name availability search','Application in the right class','Use of the TM mark from the filing date']},
+   us:{name:'Trademark Filing', price:249, time:'3–5 days to file', gov:'USPTO fee from $350 per class',
+     gets:['Name clearance search','USPTO application in the right class','Use of the TM mark from the filing date']}},
+
+  {id:'brand-kit', cat:'brand', per:'once', name:'Name, Logo & Brand Kit', time:'7 days',
+   blurb:'A name people remember and a look that works on a box, a bag and a phone screen.',
+   gets:['3 name options with availability check','Logo, colours and fonts','Sticker, bag and social templates'],
+   in:{price:6999}, us:{price:449}},
+  {id:'pack', cat:'brand', per:'once', name:'Packaging & Label Design', time:'5–7 days',
+   blurb:'Labels that carry everything a packaged-food label must show.',
+   in:{price:4999, gets:['FSSAI number, veg / non-veg mark, ingredients and allergens','Net quantity, MRP, dates and nutrition table','Print-ready files and vendor list']},
+   us:{price:349, gets:['Product name, net weight, ingredients and the 9 major allergens','Business name and address, plus the home-kitchen statement where required','Print-ready files and vendor list']},
+   intl:{gets:['Ingredients, allergens, net quantity and dates','Laid out to the label rules of your country','Print-ready files']}},
+  {id:'menu', cat:'brand', per:'once', name:'Menu Planning & Design', time:'4 days',
+   blurb:'A short menu that is easy to cook in batches and easy to choose from.',
+   in:{price:2999, gets:['Dish list with combos and thalis','Printed and WhatsApp-ready menu','Delivery-app menu sheet']},
+   us:{price:199, gets:['Dish list with bundles and weekly plans','Printed and shareable menu','Delivery-app menu sheet']}},
+  {id:'photo', cat:'brand', per:'once', name:'Food Photoshoot', time:'1 day shoot, 4 days editing',
+   blurb:'20 dishes shot in your own kitchen.',
+   in:{price:7999, gets:['20 edited photos','Sizes for Swiggy, Zomato, Instagram and web','10 short clips for reels']},
+   us:{price:499, gets:['20 edited photos','Sizes for DoorDash, Uber Eats, Instagram and web','10 short clips for reels']},
+   intl:{gets:['20 edited photos','Sizes for delivery apps, Instagram and web','10 short clips for reels']}},
+
+  {id:'dm', cat:'online', per:'once', time:'2 days', blurb:'Take orders where your customers already are.',
+   in:{name:'WhatsApp Ordering Setup', price:1999, gets:['WhatsApp Business profile and catalogue','Quick replies, greeting and away messages','Order form and broadcast lists']},
+   us:{name:'Text & Instagram Ordering Setup', price:129, gets:['Order form link for texts and bios','Instagram business profile with order button','Auto-replies and a customer list']},
+   intl:{name:'WhatsApp & Instagram Ordering Setup', gets:['WhatsApp Business profile and catalogue','Instagram business profile with order button','Auto-replies and a customer list']}},
+  {id:'pay', cat:'online', per:'once', name:'Payments Setup', time:'2–3 days',
+   blurb:'Collect money without chasing people.',
+   in:{price:1499, gets:['UPI QR in your business name','Payment links','Auto-pay for weekly or monthly plans']},
+   us:{price:99, gets:['Square or Stripe account','Card reader and tap to pay','Recurring billing for weekly plans']},
+   intl:{gets:['Online payment account that works in your country','Payment links and QR codes','Recurring billing for weekly plans']}},
+  {id:'gbp', cat:'online', per:'once', name:'Google Business Profile', time:'2 days plus verification',
+   gets:['Verified profile with menu and photos','Service area and hours','Review request card'],
+   in:{price:999, blurb:'Show up when someone nearby searches "tiffin near me".'},
+   us:{price:79, blurb:'Show up when someone nearby searches "meal prep near me".'}},
+  {id:'agg', cat:'online', per:'once', time:'7–15 days', blurb:'Get listed with the right menu, photos and prices.',
+   gets:['Partner applications','Menu upload with photos','Pricing that covers platform commission'],
+   in:{name:'Swiggy & Zomato Onboarding', price:2999}, us:{name:'DoorDash, Uber Eats & Grubhub Onboarding', price:199}, intl:{name:'Delivery App Onboarding'}},
+  {id:'ondc', cat:'online', per:'once',
+   in:{name:'ONDC Onboarding', price:2499, time:'7–10 days', blurb:'Sell through ONDC buyer apps, usually at a lower commission.',
+     gets:['Seller-app selection','Catalogue upload','Delivery partner mapping']}},
+  {id:'site', cat:'online', per:'once', name:'Ordering Website', time:'10–14 days',
+   blurb:'Your own site with menu, cart and online payment. No commission.',
+   in:{price:14999, gets:['Mobile-first site on your domain','Menu, cart, UPI and card payments','Order alerts on WhatsApp']},
+   us:{price:899, gets:['Mobile-first site on your domain','Menu, cart, cards, Apple Pay and Google Pay','Order alerts by text and email']}},
+  {id:'app', cat:'online', per:'once', name:'Mobile App (Android + iOS)', time:'4–6 weeks',
+   blurb:'For kitchens with repeat customers who order several times a week.',
+   gets:['Customer app with subscriptions and wallet','Kitchen and driver screens','Play Store and App Store publishing'],
+   in:{price:59999}, us:{price:3999}},
+
+  {id:'launch', cat:'marketing', per:'once', name:'Local Launch Campaign', time:'2 weeks',
+   in:{price:5999, blurb:'First 50 customers from the societies and offices around you.',
+     gets:['Sampling plan for 3 societies or offices','Flyers, standee and WhatsApp creatives','Referral offer']},
+   us:{price:349, blurb:'First 50 customers from the offices, gyms and apartment communities around you.',
+     gets:['Sampling plan for 3 offices, gyms or communities','Flyers plus Nextdoor and Facebook group posts','Referral offer']},
+   intl:{gets:['Sampling plan for 3 offices, gyms or communities','Flyers and local community group posts','Referral offer']}},
+  {id:'ig', cat:'marketing', per:'month', time:'Starts in 3 days', blurb:'A feed that looks alive and answers enquiries.',
+   gets:['12 posts and 8 short videos a month','Stories and comment replies','Monthly numbers report'],
+   in:{name:'Instagram Management', price:7999}, us:{name:'Instagram & TikTok Management', price:499}},
+  {id:'ads', cat:'marketing', per:'month', name:'Local Ads (Meta + Google)', time:'Live in 4 days', gov:'Ad spend extra',
+   blurb:'Ads shown only within your delivery radius.',
+   in:{price:4999, gets:['Campaign setup and creatives','Click-to-WhatsApp ads','Weekly cost-per-order report']},
+   us:{price:349, gets:['Campaign setup and creatives','Click-to-order ads','Weekly cost-per-order report']}},
+  {id:'infl', cat:'marketing', per:'once', name:'Food Influencer Tie-ups', time:'2–3 weeks',
+   blurb:'Local food pages try your food and post about it.',
+   gets:['Shortlist of 5 city food creators','Outreach and coordination','Reuse rights for the best video'],
+   in:{price:6999}, us:{price:449}},
+  {id:'market', cat:'marketing', per:'once', local:true,
+   us:{name:'Farmers Market Starter', price:199, time:'1–2 weeks', gov:'Booth fees extra',
+     blurb:'The most common first sales channel for cottage food.',
+     gets:['Applications to 3 local markets','Booth, signage and sampling checklist','Price board and card reader setup']}},
+
+  {id:'cost', cat:'ops', per:'once', name:'Recipe Costing & Pricing', time:'4 days',
+   blurb:'Know your profit on every plate before you set a price.',
+   gets:['Cost sheet for up to 25 dishes','Price for direct orders and for delivery apps','Portion and wastage guide'],
+   in:{price:2499}, us:{price:179}},
+  {id:'sub', cat:'ops', per:'once', time:'5 days', blurb:'Track who gets which meal, who paused and who has to pay.',
+   gets:['Customer list with plans and addresses','Pause, resume and skip tracking','Renewal and payment reminders'],
+   in:{name:'Tiffin Subscription Manager', price:3999}, us:{name:'Meal Plan Subscription Manager', price:249}},
+  {id:'kitchen', cat:'ops', per:'once', time:'1 week',
+   in:{name:'Kitchen Setup & Hygiene', price:3499, blurb:'Lay out the kitchen for batch cooking and pass an inspection.',
+     gets:['Equipment list by budget','FSSAI hygiene checklist','FoSTaC food-safety training guidance']},
+   us:{name:'Kitchen Workflow & Inspection Prep', price:249, blurb:'Set up for batch cooking and pass the health inspection.',
+     gets:['Equipment list by budget','Health-inspection checklist','Temperature and cleaning logs']}},
+  {id:'commissary', cat:'ops', per:'once', local:true,
+   us:{name:'Commissary Kitchen Match', price:149, time:'1 week', gov:'Rental extra, often $15–$40 an hour',
+     blurb:'A licensed shared kitchen is the fastest legal way to cook meals for sale.',
+     gets:['Shortlist of licensed shared kitchens near you','Tour and rate comparison','Commissary agreement for your permit']}},
+  {id:'deliv', cat:'ops', per:'once', name:'Delivery Setup', time:'3 days',
+   in:{price:1999, blurb:'Own rider, a delivery partner, or both.',
+     gets:['Route and time-slot plan','Accounts with third-party delivery partners','Packing so food arrives hot and unspilled']},
+   us:{price:149, blurb:'Your own driver, a courier service, or pickup windows.',
+     gets:['Route and time-slot plan','Accounts with courier partners','Insulated packing that holds safe temperature']}},
+  {id:'books', cat:'ops', per:'month', time:'Starts next month', blurb:'Sales, expenses and returns kept in order.',
+   in:{name:'Bookkeeping & GST Filing', price:1499, gets:['Monthly profit and loss','GST returns filed on time','Income tax return help at year end']},
+   us:{name:'Bookkeeping & Sales Tax Filing', price:149, gets:['Monthly profit and loss','Sales tax returns filed on time','Quarterly estimated-tax reminders']},
+   intl:{name:'Bookkeeping', gets:['Monthly profit and loss','Sales and expense records ready for your accountant','Tax deadline reminders']}},
+
+  {id:'yt', cat:'creator', per:'once', time:'4 days', blurb:'A channel that looks like a show from the first video.',
+   gets:['Name, banner, intro and thumbnail style','Phone filming and lighting guide','First 3 video outlines'],
+   in:{name:'Channel Setup (YouTube + Instagram)', price:3999}, us:{name:'Channel Setup (YouTube, TikTok + Instagram)', price:249}},
+  {id:'cal', cat:'creator', per:'once', name:'30-Day Content Calendar', time:'5 days',
+   blurb:'What to cook, shoot and post every day for a month.',
+   gets:['30 recipe ideas matched to what people search','Hooks, scripts and captions','Posting schedule'],
+   in:{price:2999}, us:{price:179}},
+  {id:'edit', cat:'creator', per:'month', name:'Video Editing', time:'48 hours per video',
+   blurb:'You cook and record. We cut, caption and deliver.',
+   in:{price:8999, gets:['12 reels or shorts a month','Subtitles in Hindi and English','Thumbnails']},
+   us:{price:549, gets:['12 short videos a month','Captions','Thumbnails']}},
+  {id:'mon', cat:'creator', per:'once', name:'Monetisation Kit', time:'1 week',
+   blurb:'Earn from brand deals and affiliate links before ad revenue starts.',
+   gets:['Media kit and rate card','Pitch list of kitchen and food brands','Affiliate storefront setup'],
+   in:{price:4999}, us:{price:299}},
+  {id:'ebook', cat:'creator', per:'once', name:'Recipe E-book or Paid Class', time:'2 weeks',
+   blurb:'Turn your best recipes into something people pay for.',
+   gets:['Designed e-book or class page','Payment and delivery setup','Launch posts'],
+   in:{price:6999}, us:{price:399}}
+];
+
+const ICON = {
+  tiffin:'<path d="M9 4h14v4H9zM7 8h18v7H7zM7 15h18v7H7zM9 22h14v5H9z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  cloud:'<path d="M6 12h20l-2 14H8zM11 12a5 5 0 0 1 10 0" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  home:'<path d="M11 4h10v4H11zM9 8h14l2 5v13H7V13zM7 17h18" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>',
+  catering:'<path d="M4 23h24M6 23a10 10 0 0 1 20 0M16 9v4M13 9h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>',
+  creator:'<path d="M5 8h22v16H5z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><path d="M13 12l7 4-7 4z" fill="currentColor"/>'
+};
+
+const COUNTRY = {
+  in:{
+    label:'India', place:'India', sym:'₹', loc:'en-IN', step:5, dec:0,
+    eyebrow:'For home cooks, tiffin kitchens and food creators',
+    paths:[
+      {id:'tiffin', name:'Tiffin service', sub:'Daily meals on weekly or monthly plans'},
+      {id:'cloud', name:'Cloud kitchen', sub:'Delivery-only brand on Swiggy and Zomato'},
+      {id:'home', name:'Home food brand', sub:'Pickles, snacks, sweets, bakery'},
+      {id:'catering', name:'Catering', sub:'Party, office and bulk orders'},
+      {id:'creator', name:'Cooking content', sub:'YouTube, Instagram, brand deals'}],
+    q1:'Expected sales in the first year',
+    q1opts:{low:'Up to ₹12 lakh (about ₹1 lakh a month)', high:'More than ₹12 lakh', none:'I am not selling food yet'},
+    defSales:{tiffin:'low', cloud:'low', home:'low', catering:'low', creator:'none'},
+    channels:[{id:'direct', name:'WhatsApp, calls and walk-ins'},{id:'agg', name:'Swiggy / Zomato'},{id:'site', name:'My own website or app'},{id:'retail', name:'Shops and exhibitions'}],
+    bundles:[
+      {name:'Tiffin Starter', who:'One cook, one kitchen, 20 to 80 meals a day.', ids:['fssai-basic','biz-prop','dm','pay','sub','cost','launch']},
+      {name:'Cloud Kitchen Launch', who:'A delivery-only brand going live on Swiggy and Zomato.', ids:['fssai-basic','tax','brand-kit','menu','photo','agg','cost','kitchen']},
+      {name:'Home Food Brand', who:'Packaged pickles, snacks, sweets or bakes sold online and in shops.', ids:['fssai-basic','biz-prop','brand-kit','pack','dm','pay','tm']},
+      {name:'Catering Desk', who:'Party and office orders taken by phone and WhatsApp.', ids:['fssai-basic','biz-prop','menu','photo','gbp','dm','cost']},
+      {name:'Creator Kit', who:'You want to earn from recipes and videos, not from selling food.', ids:['yt','cal','edit','mon']}],
+    calc:{ing:45, pack:8, del:0, orders:40, days:26, fixed:12000,
+      comm:[[0,'Direct orders (0% commission)'],[25,'Delivery app (about 25%)'],[8,'ONDC (about 8%)']],
+      note:'Fixed costs are gas, helper salary, rent and electricity. Commission rates differ by platform and city.',
+      example:'an example tiffin kitchen'},
+    permit:{title:'Which FSSAI licence do I need?', sub:'It depends on your yearly sales, not on the size of your kitchen.', label:'Expected yearly sales',
+      note:'Selling food without a registration can bring a penalty, and delivery apps will not list a kitchen without a valid FSSAI number.',
+      opts:[
+        {label:'Up to ₹12 lakh', name:'Basic Registration', valid:'valid for 1 to 5 years, your choice', fee:'₹100 per year', time:'About 7 days after filing', svc:'fssai-basic',
+          docs:['Photo and ID proof (Aadhaar, PAN or voter ID)','Address proof of the kitchen','List of food items you will make']},
+        {label:'₹12 lakh to ₹20 crore', name:'State Licence', valid:'valid for 1 to 5 years, your choice', fee:'₹2,000 to ₹5,000 per year', time:'30 to 60 days', svc:'fssai-state',
+          docs:['ID and address proof of the owner or partners','Kitchen layout plan and equipment list','Proof of premises (rent agreement or ownership)','Food safety plan and water test report']},
+        {label:'More than ₹20 crore', name:'Central Licence', valid:'valid for 1 to 5 years, your choice', fee:'₹7,500 per year', time:'30 to 60 days', svc:null,
+          docs:['Everything needed for a State Licence','Turnover proof from a chartered accountant','Company incorporation papers']}]},
+    phone:'WhatsApp number', about:'Example: North Indian veg thali for office-goers near Civil Lines, 30 tiffins a day to start',
+    send:'Online booking is not connected yet. Copy the request and send it to our team on WhatsApp.',
+    search:'Search services, e.g. FSSAI, website, reels',
+    homeFaq:'Yes. A home kitchen can register with FSSAI and sell legally. Most tiffin services and home food brands start this way.',
+    foot:'Service prices are starting prices and exclude government fees. Licence rules, fees and turnover limits change, so confirm them on <a href="https://foscos.fssai.gov.in" target="_blank" rel="noopener">foscos.fssai.gov.in</a> and <a href="https://www.gst.gov.in" target="_blank" rel="noopener">gst.gov.in</a> before you apply.'
+  },
+  us:{
+    label:'United States', place:'the United States', sym:'$', loc:'en-US', step:0.5, dec:2,
+    eyebrow:'For home cooks, meal preppers and food creators',
+    paths:[
+      {id:'tiffin', name:'Meal prep service', sub:'Weekly meal plans, pickup or delivery'},
+      {id:'cloud', name:'Ghost kitchen', sub:'Delivery-only brand on DoorDash and Uber Eats'},
+      {id:'home', name:'Cottage food brand', sub:'Baked goods, jams, snacks, spice mixes'},
+      {id:'catering', name:'Catering', sub:'Party, office and event orders'},
+      {id:'creator', name:'Cooking content', sub:'YouTube, TikTok, Instagram, brand deals'}],
+    q1:'What will you sell?',
+    q1opts:{low:'Shelf-stable food made at home (bakes, jams, snacks)', high:'Meals, or anything that needs a fridge', none:'I am not selling food yet'},
+    defSales:{tiffin:'high', cloud:'high', home:'low', catering:'high', creator:'none'},
+    channels:[{id:'direct', name:'Texts, Instagram DMs and pickup'},{id:'agg', name:'DoorDash / Uber Eats'},{id:'site', name:'My own website or app'},{id:'retail', name:'Farmers markets and stores'}],
+    bundles:[
+      {name:'Meal Prep Starter', who:'One cook in a shared kitchen, 50 to 200 meals a week.', ids:['health','commissary','handler','tax','dm','pay','sub','cost']},
+      {name:'Ghost Kitchen Launch', who:'A delivery-only brand going live on DoorDash and Uber Eats.', ids:['health','commissary','biz-co','tax','brand-kit','menu','photo','agg','cost']},
+      {name:'Cottage Food Brand', who:'Baked goods, jams or snacks made at home and sold direct.', ids:['cottage','biz-co','brand-kit','pack','pay','market','ins']},
+      {name:'Catering Desk', who:'Party, office and event orders taken by phone and email.', ids:['health','commissary','ins','menu','photo','gbp','cost']},
+      {name:'Creator Kit', who:'You want to earn from recipes and videos, not from selling food.', ids:['yt','cal','edit','mon']}],
+    calc:{ing:4.5, pack:0.9, del:0, orders:40, days:22, fixed:1500,
+      comm:[[0,'Direct orders (0% commission)'],[25,'Delivery app (about 25%)'],[3,'Own website (about 3% card fees)']],
+      note:'Fixed costs are kitchen rental, helper wages, insurance and gas. Commission rates differ by platform and plan.',
+      example:'an example meal prep kitchen'},
+    permit:{title:'Which food permit do I need?', sub:'It depends on what you make and where you cook it.', label:'What you will sell',
+      note:'Rules are set by your state and county. Confirm with your local health department before you sell.',
+      opts:[
+        {label:'Shelf-stable food from my home kitchen', name:'Cottage food permit', valid:'yearly sales caps and allowed foods differ by state', fee:'$0 to about $250, by state', time:'Same day to 4 weeks', svc:'cottage',
+          docs:['List of products and recipes','A label for each product','Food handler card','Home kitchen inspection or well-water test, in some states']},
+        {label:'Meals or perishable food', name:'Health department permit', valid:'renewed every year after inspection', fee:'Set by your county', time:'2 to 8 weeks', svc:'health',
+          docs:['Lease or commissary agreement for a licensed kitchen','Menu and food-safety plan','Certified Food Protection Manager certificate','Business licence and sales tax permit']},
+        {label:'Packaged food for stores or other states', name:'State food manufacturer licence', valid:'plus FDA food facility registration, which is free', fee:'State fee varies', time:'4 to 12 weeks', svc:null,
+          docs:['Licensed production facility','Labels that meet FDA rules, with nutrition facts unless exempt','Process review for canned, acidified or low-acid foods','USDA inspection if the product contains meat or poultry']}]},
+    phone:'Phone number', about:'Example: high-protein meal prep for gym-goers in Austin, 60 meals a week to start',
+    send:'Online booking is not connected yet. Copy the request and send it to our team by text or email.',
+    search:'Search services, e.g. LLC, permit, website',
+    homeFaq:'For shelf-stable food such as baked goods and jams, usually yes, under your state\'s cottage food law. Meals generally need a licensed kitchen, which you can rent by the hour.',
+    foot:'Service prices are starting prices and exclude government fees. Food rules are set state by state and county by county, so confirm them with your local health department. The <a href="https://www.sba.gov" target="_blank" rel="noopener">SBA</a> lists licences and permits by state, and the <a href="https://www.irs.gov" target="_blank" rel="noopener">IRS</a> issues EINs for free.'
+  },
+  intl:{
+    label:'Other country', place:'your country', sym:'$', loc:'en-US', step:0.5, dec:2,
+    eyebrow:'For home cooks, meal sellers and food creators',
+    paths:[
+      {id:'tiffin', name:'Meal subscription', sub:'Daily or weekly meals on a plan'},
+      {id:'cloud', name:'Delivery-only kitchen', sub:'A brand that lives on delivery apps'},
+      {id:'home', name:'Home food brand', sub:'Baked goods, preserves, snacks, sweets'},
+      {id:'catering', name:'Catering', sub:'Party, office and event orders'},
+      {id:'creator', name:'Cooking content', sub:'YouTube, TikTok, Instagram, brand deals'}],
+    q1:'What will you sell?',
+    q1opts:{low:'Food made in my home kitchen', high:'Meals from a rented or commercial kitchen', none:'I am not selling food yet'},
+    defSales:{tiffin:'low', cloud:'high', home:'low', catering:'high', creator:'none'},
+    channels:[{id:'direct', name:'Messages, calls and pickup'},{id:'agg', name:'Food delivery apps'},{id:'site', name:'My own website or app'},{id:'retail', name:'Markets and stores'}],
+    bundles:[
+      {name:'Meal Subscription Starter', who:'One cook, one kitchen, a steady list of weekly customers.', ids:['guide','dm','pay','sub','cost','launch']},
+      {name:'Delivery Kitchen Launch', who:'A delivery-only brand going live on the food apps in your city.', ids:['guide','brand-kit','menu','photo','agg','cost','kitchen']},
+      {name:'Home Food Brand', who:'Packaged bakes, preserves, snacks or sweets sold direct and in stores.', ids:['guide','brand-kit','pack','dm','pay']},
+      {name:'Catering Desk', who:'Party, office and event orders taken by phone and message.', ids:['guide','menu','photo','gbp','dm','cost']},
+      {name:'Creator Kit', who:'You want to earn from recipes and videos, not from selling food.', ids:['yt','cal','edit','mon']}],
+    calc:{ing:4.5, pack:0.9, del:0, orders:40, days:22, fixed:1500,
+      comm:[[0,'Direct orders (0% commission)'],[25,'Delivery app (about 25%)'],[3,'Own website (about 3% card fees)']],
+      note:'Enter amounts in your own currency. The maths is the same. Fixed costs are rent, wages, gas and electricity.',
+      example:'an example meal kitchen'},
+    permit:{title:'What do I need to sell food legally?', sub:'The names differ by country, but most places ask for the same few things.', label:'What you will sell',
+      note:'This is a general guide. We confirm the exact rules for your country and city before you apply.',
+      opts:[
+        {label:'Food made in my home kitchen', name:'Home food registration', valid:'many countries have a lighter route for small home sellers', fee:'Varies by country', time:'Varies by country', svc:'guide',
+          docs:['Proof of identity and address','List of the foods you will make','Food hygiene or food handler training','Labels with ingredients and allergens']},
+        {label:'Meals from a commercial kitchen', name:'Food business licence', valid:'usually renewed every year after inspection', fee:'Varies by country', time:'Varies by country', svc:'guide',
+          docs:['Lease or agreement for an approved kitchen','Menu and food-safety plan','Business registration and tax number','Hygiene training certificates for staff']}]},
+    phone:'Phone or WhatsApp number', about:'Example: Lebanese home cooking for office lunches in Dubai, 25 meals a day to start',
+    send:'Online booking is not connected yet. Copy the request and send it to our team by message or email.',
+    search:'Search services, e.g. website, logo, reels',
+    homeFaq:'In many countries, yes, under a registration for small home food sellers. We check the rules where you live before you spend anything.',
+    foot:'Prices are in US dollars and are starting prices. Government fees are extra. Licence rules differ by country and city, and we confirm yours before any application is made.'
+  }
+};
+
+function guessCountry(){
+  try {
+    const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '', lang = navigator.language || '';
+    if (tz === 'Asia/Kolkata' || tz === 'Asia/Calcutta') return 'in';
+    if (/-US$/i.test(lang) && (tz.indexOf('America/') === 0 || tz === 'Pacific/Honolulu')) return 'us';
+  } catch (e) {}
+  return 'intl';
+}
+let state = {country:guessCountry(), path:'tiffin', sales:'low', channels:['direct'], team:'solo', carts:{in:[], us:[], intl:[]}, cat:'all', q:''};
+const CONTACT = {whatsapp:'', email:''};  /* whatsapp: digits with country code, e.g. 919876543210 */
+const CODES = ['in','us','intl'];
+state.sales = COUNTRY[state.country].defSales.tiffin;
+try {
+  const saved = JSON.parse(localStorage.getItem('kitchen-launch') || 'null');
+  if (saved && typeof saved === 'object' && COUNTRY[saved.country]) state = Object.assign(state, saved);
+} catch (e) {}
+function save(){ try { localStorage.setItem('kitchen-launch', JSON.stringify(state)); } catch (e) {} }
+
+const LISTS = {}, MAPS = {};
+const offered = (s, c) => c === 'intl' ? ((s.us && s.cat !== 'legal' && !s.local) || (!s.us && !s.in && !!s.intl)) : !!s[c];
+CODES.forEach(c => {
+  LISTS[c] = S.filter(s => offered(s, c)).map(s => {
+    const m = c === 'intl' ? Object.assign({}, s, s.us, s.intl) : Object.assign({}, s, s[c]);
+    delete m.in; delete m.us; delete m.intl; delete m.local; return m;
+  });
+  MAPS[c] = Object.fromEntries(LISTS[c].map(s => [s.id, s]));
+  state.carts[c] = (state.carts[c] || []).filter(id => MAPS[c][id]);
+});
+
+const cfg = () => COUNTRY[state.country];
+const svc = id => MAPS[state.country][id];
+const cart = () => state.carts[state.country];
+
+const $ = id => document.getElementById(id);
+const esc = s => String(s).replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const money = (n, dec) => cfg().sym + Number(n).toLocaleString(cfg().loc, {minimumFractionDigits:dec || 0, maximumFractionDigits:dec || 0});
+const priceHtml = s => '<span class="price num">' + money(s.price) + (s.per === 'month' ? ' <small>/ month</small>' : '') + '</span>';
+const inCart = id => cart().includes(id);
+const addBtn = id => '<button type="button" class="btn ' + (inCart(id) ? 'on' : '') + '" data-toggle="' + id + '" aria-pressed="' + inCart(id) + '">' + (inCart(id) ? 'Added' : 'Add') + '</button>';
+
+function buildRoadmap(st){
+  const tiers = [
+    {name:'Make it legal', items:[]},
+    {name:'Build the brand', items:[]},
+    {name:'Open your counter', items:[]},
+    {name:'Bring customers', items:[]},
+    {name:'Run it daily', items:[]}
+  ];
+  const seen = {};
+  const add = (t, id, need, why) => {
+    if (!svc(id)) return;
+    if (seen[id]) { if (need === 'must') seen[id].need = 'must'; return; }
+    seen[id] = {id, need, why}; tiers[t].items.push(seen[id]);
+  };
+  const INTL = st.country === 'intl', US = st.country !== 'in', p = st.path, sells = st.sales !== 'none', ch = new Set(sells ? st.channels : []);
+  const meals = p === 'tiffin' || p === 'cloud' || p === 'catering';
+
+  if (!sells) {
+    tiers[0].note = US ? 'You do not need a food permit to post recipes. You will need one the day you start selling food.'
+                       : 'You do not need FSSAI to post recipes. You will need it the day you start selling food.';
+    add(0,'guide','good','Tells you how to register as self-employed so you can invoice brands.');
+  } else if (INTL) {
+    add(0,'guide','must','Food licence, business registration and tax rules differ in every country. We find yours and prepare the applications.');
+  } else if (US) {
+    if (st.sales === 'low') {
+      add(0,'cottage','must','Your state decides which home-made foods you may sell, where, and up to what yearly sales.');
+      add(0,'handler','good','Many states ask cottage food sellers for a food handler card.');
+      if (meals) tiers[0].note = 'Most states do not allow meals or perishable food from a home kitchen. A few permit it under home-kitchen (MEHKO) laws. Otherwise choose "Meals" and cook in a licensed kitchen.';
+    } else {
+      add(0,'health','must','Meals and perishable food must come from a permitted kitchen that passes inspection.');
+      add(0,'commissary','must','Renting a licensed shared kitchen is the fastest legal way to start.');
+      add(0,'handler','must','Counties require certified food-safety training before they issue a permit.');
+    }
+  } else {
+    if (st.sales === 'low') add(0,'fssai-basic','must','Every kitchen that sells food needs it, even a home kitchen. The number goes on your bills, labels and delivery-app listing.');
+    else add(0,'fssai-state','must','Above ₹12 lakh a year the basic registration is no longer enough.');
+  }
+
+  if (INTL) {
+    if (st.team === 'partners') tiers[0].note = 'With partners or investors you will also need a registered company. The research covers which type fits.';
+  } else if (US) {
+    if (st.team === 'partners') add(0,'biz-co','must','An LLC sets out who owns what and keeps personal savings separate from business debts.');
+    else add(0,'biz-co','good', sells ? 'Protects your home and savings if a customer makes a claim.' : 'Lets you sign brand deals and keep that income separate.');
+    if (sells) {
+      add(0,'tax', st.sales === 'high' ? 'must' : 'good', st.sales === 'high' ? 'Prepared food is taxed in most states. You collect it and pay it to the state.' : 'Some states tax packaged food too.');
+      add(0,'local','good','Most cities and counties want a general business license.');
+      add(0,'ins', (st.sales === 'high' || ch.has('retail')) ? 'must' : 'good', 'Shared kitchens, markets and catering clients ask for a certificate of insurance.');
+    }
+  } else {
+    if (st.team === 'partners') add(0,'biz-co','must','Fixes who owns what and keeps personal savings separate from business debts.');
+    else add(0,'biz-prop','good', sells ? 'Lets you open a current account and take payments in your brand name.' : 'Lets you raise invoices for paid brand collaborations.');
+    if (sells) add(0,'tax', st.sales === 'high' && ch.has('agg') ? 'must' : 'good', 'Compulsory once sales cross ₹20 lakh (services) or ₹40 lakh (goods). Delivery apps often ask for a GSTIN.');
+    if (p === 'cloud' || p === 'catering') add(0,'local','good','Most cities want a trade licence for a commercial kitchen.');
+  }
+  if (p === 'home' || p === 'cloud') add(0,'tm','good','Your name is the asset. File before you print packaging.');
+
+  if (p === 'creator') {
+    add(1,'yt','must','A consistent look is what makes a viewer subscribe.');
+  } else {
+    add(1,'brand-kit', (p === 'cloud' || p === 'home') ? 'must' : 'good', 'Customers choose with their eyes on an app or a shelf.');
+    if (p === 'home' || ch.has('retail')) add(1,'pack','must', US ? 'Packaged food needs a compliant label with ingredients and allergens.' : 'Packaged food must carry a compliant label with your FSSAI number.');
+    else add(1,'pack','good','Spill-proof packing with your sticker on it brings repeat orders.');
+    if (p !== 'home') add(1,'menu','good','A short menu cooks faster and wastes less.');
+    add(1,'photo', ch.has('agg') || ch.has('site') ? 'must' : 'good', 'Dishes with photos get ordered far more than dishes without.');
+  }
+
+  if (sells) {
+    if (ch.has('direct')) { add(2,'dm','must', US ? 'An order form and auto-replies save hours every day.' : 'Catalogue, quick replies and broadcast lists save hours every day.'); add(2,'pay','must', US ? 'Card payments and recurring billing end the payment chase.' : 'A QR and auto-pay end the monthly payment chase.'); }
+    if (ch.has('agg')) { add(2,'agg','must','Listing setup decides how often you appear in search.'); add(2,'ondc','good','A second channel with lower commission.'); }
+    if (ch.has('site')) { add(2,'site','must','Your own orders with no commission.'); add(2,'pay','must','Online payment on your own site.'); add(2,'app','good','Worth it once you have regular repeat customers.'); }
+    if (ch.has('retail')) { add(2,'market','must','Markets are where most cottage food brands find their first regulars.'); add(2,'pay','must','Shoppers expect to tap a card.'); }
+    if (p !== 'home' || ch.has('direct')) add(2,'gbp','good','Free listing for people searching nearby.');
+    if (!tiers[2].items.length) tiers[2].note = 'Pick at least one place to sell and this tier fills in.';
+  }
+  if (p === 'creator') { add(2,'cal','must','Posting on a schedule is what grows a channel.'); add(2,'edit','good','Editing takes more time than cooking. Hand it over.'); }
+
+  if (p === 'creator') {
+    add(3,'mon','must','Brand deals and affiliate links pay before ad revenue does.');
+    add(3,'ebook','good','A product of your own that keeps selling after you post.');
+    tiers[3].note = 'YouTube shares ad revenue after 1,000 subscribers and 4,000 watch hours, or 10 million Shorts views in 90 days.';
+  } else {
+    if (p === 'tiffin' || p === 'catering' || ch.has('direct')) add(3,'launch','must', US ? 'Your first customers live or work close to you.' : 'Your first customers live or work within 3 km of you.');
+    add(3,'ig','good','Daily proof that the kitchen is busy and clean.');
+    if (p === 'cloud' || ch.has('site')) add(3,'ads','good','Reach people in your delivery radius at meal times.');
+    if (p === 'cloud' || p === 'home') add(3,'infl','good','One good local review can fill a week of orders.');
+  }
+
+  if (p !== 'creator' || sells) {
+    add(4,'cost','must','Without costing you cannot tell a busy month from a profitable one.');
+    if (p === 'tiffin') add(4,'sub','must','Tracks plans, pauses and dues for every customer.');
+    if (p !== 'creator') add(4,'kitchen', p === 'cloud' ? 'must' : 'good', 'Batch-cooking layout and the hygiene points inspectors check.');
+    if (ch.has('direct') || ch.has('site')) add(4,'deliv','good','Late or spilled food loses customers faster than taste does.');
+  }
+  add(4,'books', (st.sales === 'high' || st.team === 'partners') ? 'must' : 'good', US ? 'Clean books make sales tax, income tax and loans simple.' : 'Clean books make GST, tax and loans simple.');
+
+  return tiers.filter(t => t.items.length || t.note);
+}
+
+function sums(ids){
+  const items = ids.map(svc).filter(Boolean);
+  return {once: items.filter(s => s.per === 'once').reduce((a,s) => a + s.price, 0), month: items.filter(s => s.per === 'month').reduce((a,s) => a + s.price, 0)};
+}
+
+function renderStart(){
+  const st = state, c = cfg(), tiers = buildRoadmap(st);
+  const musts = tiers.flatMap(t => t.items).filter(i => i.need === 'must');
+  const mt = sums(musts.map(i => i.id));
+  const allMustIn = musts.length > 0 && musts.every(i => inCart(i.id));
+  const radio = (name, val, label, cur) => '<label class="opt"><input type="radio" name="' + name + '" id="' + name + '-' + val + '" value="' + val + '"' + (cur === val ? ' checked' : '') + '><span>' + esc(label) + '</span></label>';
+
+  $('view-start').innerHTML =
+    '<div class="hero"><p class="eyebrow">' + esc(c.eyebrow) + '</p>' +
+    '<h1>Get paid for the food you <em>already cook</em>.</h1>' +
+    '<p class="lede">Licences, a brand, a place to take orders and the first customers. Tell us what you want to start and we lay out every step for ' + esc(c.place) + ' with its cost.</p></div>' +
+
+    '<div class="sec-head"><h2>What do you want to start?</h2></div>' +
+    '<div class="paths">' + c.paths.map(p =>
+      '<button type="button" class="path" data-path="' + p.id + '" aria-pressed="' + (st.path === p.id) + '"><svg viewBox="0 0 32 32" aria-hidden="true">' + ICON[p.id] + '</svg><b>' + esc(p.name) + '</b><small>' + esc(p.sub) + '</small></button>').join('') + '</div>' +
+
+    '<div class="build"><div class="qs">' +
+      '<fieldset><legend>' + esc(c.q1) + '</legend>' +
+        radio('sales','low',c.q1opts.low, st.sales) + radio('sales','high',c.q1opts.high, st.sales) + radio('sales','none',c.q1opts.none, st.sales) + '</fieldset>' +
+      (st.sales !== 'none' ? '<fieldset><legend>Where will you sell?</legend>' + c.channels.map(x =>
+        '<label class="opt"><input type="checkbox" name="channel" id="ch-' + x.id + '" value="' + x.id + '"' + (st.channels.includes(x.id) ? ' checked' : '') + '><span>' + esc(x.name) + '</span></label>').join('') + '</fieldset>' : '') +
+      '<fieldset><legend>Who owns the business?</legend>' +
+        radio('team','solo','Just me or my family', st.team) + radio('team','partners','Partners or investors', st.team) + '</fieldset>' +
+    '</div>' +
+
+    '<div class="carrier"><div class="handle" aria-hidden="true"></div>' +
+      tiers.map((t, i) =>
+        '<div class="tier' + (i === 0 ? ' first' : '') + (i === tiers.length - 1 ? ' last' : '') + '">' +
+          '<div class="tier-head"><span>Tier ' + (i + 1) + '</span><h3>' + esc(t.name) + '</h3></div>' +
+          (t.note ? '<p class="tier-note">' + esc(t.note) + '</p>' : '') +
+          (t.items.length ? '<div class="rows">' + t.items.map(it => { const s = svc(it.id); return (
+            '<div class="row"><div class="row-main"><div class="row-title"><span>' + esc(s.name) + '</span><span class="tag ' + it.need + '">' + (it.need === 'must' ? 'Must have' : 'Good to have') + '</span></div>' +
+            '<div class="row-why">' + esc(it.why) + '</div></div>' +
+            '<div class="row-side">' + priceHtml(s) + addBtn(s.id) + '</div></div>'); }).join('') + '</div>' : '') +
+        '</div>').join('') +
+      '<div class="carrier-foot"><p><b class="num">' + musts.length + ' must-haves</b> come to <b class="num">' + money(mt.once) + '</b>' + (mt.month ? ' plus <b class="num">' + money(mt.month) + '</b> a month' : '') + ', before government fees.</p>' +
+      '<button type="button" class="btn primary big" id="add-musts"' + (allMustIn ? ' disabled' : '') + '>' + (allMustIn ? 'Must-haves are in your plan' : 'Add all must-haves') + '</button></div>' +
+    '</div></div>' +
+
+    '<div class="sec-head"><h2>How it works</h2></div>' +
+    '<ol class="steps">' +
+      '<li><b>Build your plan</b><span>Pick what you want to start. The roadmap above shows what you need and what it costs.</span></li>' +
+      '<li><b>Send your request</b><span>We go through it with you, answer questions and confirm the final quote.</span></li>' +
+      '<li><b>We do the work</b><span>Applications, design, listings and campaigns are handled for you, one tier at a time.</span></li>' +
+    '</ol>' +
+
+    '<div class="sec-head"><h2>Common questions</h2></div>' +
+    '<div class="faq">' +
+      '<details><summary>Can I start from my home kitchen?</summary><p>' + esc(c.homeFaq) + '</p></details>' +
+      '<details><summary>Can I take just one service?</summary><p>Yes. Every service is priced on its own. Bundles are only a shortcut for adding several at once.</p></details>' +
+      '<details><summary>Are government fees included?</summary><p>No. Our prices cover our work. Fees charged by government offices, platforms and insurers are extra, and they are shown next to each service.</p></details>' +
+      '<details><summary>Which countries do you work in?</summary><p>India and the United States have full licence and registration services. Everywhere else, branding, websites, marketing and content work the same way, and we research the licences for your country. Change the country at the top of the page.</p></details>' +
+    '</div>';
+}
+
+function renderServices(){
+  const q = state.q.trim().toLowerCase();
+  const list = LISTS[state.country].filter(s => (state.cat === 'all' || s.cat === state.cat) && (!q || (s.name + ' ' + s.blurb + ' ' + s.gets.join(' ')).toLowerCase().includes(q)));
+  const catName = id => CATS.find(c => c.id === id).name;
+  const host = $('view-services');
+  if (!host.dataset.built) {
+    host.innerHTML = '<div class="sec-head"><h2>Every service, priced</h2><p class="lede">Pick only what you need. Each price is a one-time starting fee unless it says per month.</p></div>' +
+      '<div class="filters" id="filters"></div><div id="svc-grid"></div>';
+    host.dataset.built = '1';
+  }
+  $('filters').innerHTML = [{id:'all', name:'All'}].concat(CATS).map(c =>
+    '<button type="button" class="chip" data-cat="' + c.id + '" aria-pressed="' + (state.cat === c.id) + '">' + esc(c.name) + '</button>').join('') +
+    '<input class="search" id="svc-search" type="search" placeholder="' + esc(cfg().search) + '" aria-label="Search services" value="' + esc(state.q) + '">';
+  $('svc-grid').innerHTML = list.length ? '<div class="grid">' + list.map(s =>
+    '<article class="card"><span class="cat-label">' + esc(catName(s.cat)) + '</span><h3>' + esc(s.name) + '</h3><p>' + esc(s.blurb) + '</p>' +
+    '<ul>' + s.gets.map(g => '<li>' + esc(g) + '</li>').join('') + '</ul>' +
+    '<div class="meta"><span>' + esc(s.time) + '</span>' + (s.gov ? '<span>' + esc(s.gov) + '</span>' : '') + '</div>' +
+    '<div class="card-foot">' + priceHtml(s) + addBtn(s.id) + '</div></article>').join('') + '</div>'
+    : '<div class="empty"><p>No service matches that search. Clear the search or choose another category.</p></div>';
+}
+
+function renderBundles(){
+  $('view-bundles').innerHTML = '<div class="sec-head"><h2>Ready-made bundles</h2><p class="lede">The services most people need for each kind of food business, added to your plan in one tap. You can remove any of them afterwards.</p></div>' +
+    '<div class="grid">' + cfg().bundles.map((b, i) => { const t = sums(b.ids), all = b.ids.every(inCart); return (
+      '<article class="card"><h3>' + esc(b.name) + '</h3><p>' + esc(b.who) + '</p>' +
+      '<ul>' + b.ids.map(id => '<li>' + esc(svc(id).name) + '</li>').join('') + '</ul>' +
+      '<div class="card-foot"><span class="price num">' + money(t.once) + (t.month ? ' <small>+ ' + money(t.month) + ' / month</small>' : '') + '</span>' +
+      '<button type="button" class="btn ' + (all ? 'on' : 'primary') + '" data-bundle="' + i + '"' + (all ? ' disabled' : '') + '>' + (all ? 'In your plan' : 'Add all ' + b.ids.length) + '</button></div></article>'); }).join('') + '</div>';
+}
+
+function renderTools(){
+  const c = cfg(), k = c.calc, pm = c.permit, sym = c.sym;
+  $('view-tools').innerHTML = '<div class="sec-head"><h2>Work out the numbers first</h2><p class="lede">Two quick checks before you spend anything. The figures shown are ' + esc(k.example) + '. Replace them with your own.</p></div>' +
+    '<div class="tools">' +
+    '<div class="card"><h3>Plate price calculator</h3><p>What to charge so each plate leaves the profit you want.</p>' +
+      '<div class="fields">' +
+        '<label class="field">Ingredients per plate (' + sym + ')<input id="c-ing" type="number" min="0" step="any" inputmode="decimal" value="' + k.ing + '"></label>' +
+        '<label class="field">Packaging per plate (' + sym + ')<input id="c-pack" type="number" min="0" step="any" inputmode="decimal" value="' + k.pack + '"></label>' +
+        '<label class="field">Delivery you pay per plate (' + sym + ')<input id="c-del" type="number" min="0" step="any" inputmode="decimal" value="' + k.del + '"></label>' +
+        '<label class="field">Selling through<select id="c-comm">' + k.comm.map(o => '<option value="' + o[0] + '">' + esc(o[1]) + '</option>').join('') + '</select></label>' +
+        '<label class="field">Profit you want (% of price)<input id="c-margin" type="number" min="0" max="90" inputmode="decimal" value="30"></label>' +
+        '<label class="field">Plates per day<input id="c-orders" type="number" min="0" inputmode="numeric" value="' + k.orders + '"></label>' +
+        '<label class="field">Working days a month<input id="c-days" type="number" min="1" max="31" inputmode="numeric" value="' + k.days + '"></label>' +
+        '<label class="field">Fixed costs a month (' + sym + ')<input id="c-fixed" type="number" min="0" step="any" inputmode="decimal" value="' + k.fixed + '"></label>' +
+      '</div><div class="result" id="c-out" aria-live="polite"></div>' +
+      '<p class="note">' + esc(k.note) + '</p></div>' +
+
+    '<div class="card"><h3>' + esc(pm.title) + '</h3><p>' + esc(pm.sub) + '</p>' +
+      '<div class="fields"><label class="field">' + esc(pm.label) + '<select id="f-band">' + pm.opts.map((o, i) => '<option value="' + i + '">' + esc(o.label) + '</option>').join('') + '</select></label></div>' +
+      '<div class="result" id="f-out" aria-live="polite"></div>' +
+      '<p class="note">' + esc(pm.note) + '</p></div>' +
+    '</div>';
+  calc(); permit();
+}
+
+function calc(){
+  const c = cfg(), v = id => Math.max(0, parseFloat($(id).value) || 0);
+  const V = v('c-ing') + v('c-pack') + v('c-del'), cm = v('c-comm') / 100, m = v('c-margin') / 100;
+  const N = v('c-orders'), D = v('c-days'), F = v('c-fixed'), out = $('c-out');
+  if (cm + m >= 0.95) { out.innerHTML = '<p class="warn">Commission and profit together are ' + Math.round((cm + m) * 100) + '% of the price, which leaves nothing for food. Lower the profit you want.</p>'; return; }
+  const P = Math.ceil((V / (1 - cm - m)) / c.step - 1e-9) * c.step;
+  const per = P * (1 - cm) - V, rev = P * N * D, profit = per * N * D - F;
+  const be = per > 0 && D > 0 ? Math.ceil(F / (per * D)) : null;
+  out.innerHTML = '<div><div class="bigfig num">' + money(P, c.dec) + '</div><div>suggested price per plate</div></div>' +
+    '<dl><dt>You keep per plate</dt><dd class="num">' + money(per, c.dec) + '</dd>' +
+    '<dt>Monthly sales</dt><dd class="num">' + money(rev) + '</dd>' +
+    '<dt>Monthly profit after fixed costs</dt><dd class="num">' + (profit < 0 ? '−' + money(-profit) : money(profit)) + '</dd>' +
+    '<dt>Plates a day to break even</dt><dd class="num">' + (be === null ? 'n/a' : be) + '</dd></dl>' +
+    (profit < 0 ? '<p class="warn">At this volume you lose money. You need more plates a day or lower fixed costs.</p>' : '');
+}
+
+function permit(){
+  const f = cfg().permit.opts[+$('f-band').value || 0];
+  $('f-out').innerHTML = '<div><div class="bigfig">' + esc(f.name) + '</div><div>' + esc(f.valid) + '</div></div>' +
+    '<dl><dt>Government fee</dt><dd>' + esc(f.fee) + '</dd><dt>Usual time</dt><dd>' + esc(f.time) + '</dd></dl>' +
+    '<div><b>Keep these ready</b><ul class="doc-list">' + f.docs.map(d => '<li>' + esc(d) + '</li>').join('') + '</ul></div>' +
+    (f.svc ? '<div><button type="button" class="btn ' + (inCart(f.svc) ? 'on' : 'primary') + '" data-toggle="' + f.svc + '" aria-pressed="' + inCart(f.svc) + '">' + (inCart(f.svc) ? 'Added to my plan' : 'Add ' + esc(svc(f.svc).name) + ' to my plan') + '</button></div>'
+           : '<p class="warn">At this size you need a compliance consultant. Tell us in your request.</p>');
+}
+
+function renderPlan(){
+  const host = $('view-plan'), ids = cart(), t = sums(ids), c = cfg();
+  if (!ids.length) {
+    host.innerHTML = '<div class="sec-head"><h2>My plan</h2></div><div class="empty"><p>Your plan is empty. Answer three questions on the Start page and add the must-haves, or pick services one by one.</p><a class="btn primary big" href="#start" style="text-decoration:none">Build my plan</a></div>';
+    return;
+  }
+  const govs = ids.map(svc).filter(s => s.gov);
+  host.innerHTML = '<div class="sec-head"><h2>My plan</h2><p class="lede"><span class="num">' + ids.length + '</span> service' + (ids.length > 1 ? 's' : '') + ' chosen. Review them, then send us your request.</p></div>' +
+    '<div class="plan"><div class="card"><div class="rows">' + ids.map(id => { const s = svc(id); return (
+      '<div class="row"><div class="row-main"><div class="row-title">' + esc(s.name) + '</div><div class="row-why">' + esc(s.time) + (s.gov ? ' · ' + esc(s.gov) : '') + '</div></div>' +
+      '<div class="row-side">' + priceHtml(s) + '<button type="button" class="btn quiet" data-toggle="' + id + '" aria-label="Remove ' + esc(s.name) + '">Remove</button></div></div>'); }).join('') + '</div>' +
+      '<div class="totals"><div class="grand"><span>One-time</span><span class="num">' + money(t.once) + '</span></div>' +
+      (t.month ? '<div><span>Every month</span><b class="num">' + money(t.month) + '</b></div>' : '') + '</div>' +
+      (govs.length ? '<p class="note">Government and third-party fees are paid separately.</p>' : '') +
+    '</div>' +
+    '<form class="card" id="req-form" novalidate><h3>Send your request</h3>' +
+      '<div class="fields">' +
+        '<label class="field">Your name<input id="r-name" type="text" autocomplete="name" required></label>' +
+        '<label class="field">' + esc(c.phone) + '<input id="r-phone" type="tel" inputmode="tel" autocomplete="tel" required></label>' +
+        '<label class="field">' + (state.country === 'us' ? 'City and state' : state.country === 'intl' ? 'City and country' : 'City') + '<input id="r-city" type="text" autocomplete="address-level2"></label>' +
+      '</div>' +
+      '<label class="field">What do you cook and who will buy it?<textarea id="r-about" rows="3" placeholder="' + esc(c.about) + '"></textarea></label>' +
+      '<p class="note" id="r-err" role="alert" hidden></p>' +
+      '<div><button class="btn primary big" type="submit">Create my request</button></div>' +
+      '<div id="r-done" hidden><label class="field">Your request<textarea class="out" id="r-out" readonly></textarea></label>' +
+      '<div class="send">' +
+        (CONTACT.whatsapp ? '<a class="btn primary" id="r-wa" target="_blank" rel="noopener" href="https://wa.me/' + esc(CONTACT.whatsapp) + '">Send on WhatsApp</a>' : '') +
+        (CONTACT.email ? '<a class="btn primary" id="r-mail" href="mailto:' + esc(CONTACT.email) + '">Send by email</a>' : '') +
+        '<button type="button" class="btn" id="r-copy">Copy request</button><span class="note" id="r-copied" role="status"></span></div>' +
+      '<p class="note" style="margin-top:8px">' + (CONTACT.whatsapp || CONTACT.email ? 'The button opens a message with your request filled in. Press send there to reach us.' + (CONTACT.email ? ' You can also write to ' + esc(CONTACT.email) + '.' : '') : esc(c.send)) + '</p></div>' +
+    '</form></div>';
+}
+
+function buildRequest(){
+  const c = cfg(), name = $('r-name').value.trim(), phone = $('r-phone').value.trim(), err = $('r-err');
+  if (!name || phone.replace(/\D/g,'').length < 10) {
+    err.textContent = !name ? 'Enter your name so we know who to call.' : 'Enter a phone number with at least 10 digits.';
+    err.hidden = false; $('r-done').hidden = true; return;
+  }
+  err.hidden = true;
+  const t = sums(cart()), path = c.paths.find(p => p.id === state.path).name;
+  const lines = ['Kitchen Launch request', '', 'Country: ' + c.label, 'Name: ' + name, 'Phone: ' + phone];
+  if ($('r-city').value.trim()) lines.push('City: ' + $('r-city').value.trim());
+  lines.push('Starting: ' + path);
+  if ($('r-about').value.trim()) lines.push('About: ' + $('r-about').value.trim());
+  lines.push('', 'Services:');
+  cart().forEach((id, i) => { const s = svc(id); lines.push((i + 1) + '. ' + s.name + ' - ' + money(s.price) + (s.per === 'month' ? ' / month' : '')); });
+  lines.push('', 'One-time total: ' + money(t.once));
+  if (t.month) lines.push('Monthly total: ' + money(t.month));
+  lines.push('Government fees extra.');
+  const text = lines.join('\n');
+  $('r-out').value = text;
+  if (CONTACT.whatsapp) $('r-wa').href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
+  if (CONTACT.email) $('r-mail').href = 'mailto:' + CONTACT.email + '?subject=' + encodeURIComponent('Kitchen Launch request') + '&body=' + encodeURIComponent(text);
+  $('r-copied').textContent = '';
+  $('r-done').hidden = false;
+}
+
+const VIEWS = ['start','services','bundles','tools','plan'];
+const RENDER = {start:renderStart, services:renderServices, bundles:renderBundles, tools:renderTools, plan:renderPlan};
+function current(){ const h = location.hash.replace('#',''); return VIEWS.includes(h) ? h : 'start'; }
+function chrome(){
+  $('count').textContent = cart().length;
+  $('mark').hidden = state.country !== 'in';
+  $('foot').innerHTML = cfg().foot;
+  $('country').value = state.country;
+}
+function show(scroll){
+  const v = current();
+  VIEWS.forEach(n => { $('view-' + n).hidden = n !== v; });
+  document.querySelectorAll('#tabs a').forEach(a => { if (a.getAttribute('href') === '#' + v) a.setAttribute('aria-current','page'); else a.removeAttribute('aria-current'); });
+  chrome(); RENDER[v]();
+  if (scroll) window.scrollTo(0, 0);
+}
+function refresh(){
+  chrome(); save();
+  const v = current();
+  if (v === 'tools') permit(); else RENDER[v]();
+}
+
+window.addEventListener('hashchange', () => show(true));
+document.addEventListener('click', e => {
+  const b = e.target.closest('button'); if (!b) return;
+  if (b.dataset.toggle) {
+    const id = b.dataset.toggle, list = cart(), i = list.indexOf(id);
+    if (i >= 0) list.splice(i, 1); else list.push(id);
+    refresh();
+  } else if (b.dataset.path) {
+    state.path = b.dataset.path;
+    state.sales = cfg().defSales[state.path];
+    if (state.path === 'cloud' && !state.channels.includes('agg')) state.channels.push('agg');
+    refresh();
+  } else if (b.id === 'add-musts') {
+    buildRoadmap(state).flatMap(t => t.items).filter(i => i.need === 'must').forEach(i => { if (!inCart(i.id)) cart().push(i.id); });
+    refresh();
+  } else if (b.dataset.bundle) {
+    cfg().bundles[+b.dataset.bundle].ids.forEach(id => { if (!inCart(id)) cart().push(id); });
+    refresh();
+  } else if (b.dataset.cat) {
+    state.cat = b.dataset.cat; refresh();
+  } else if (b.id === 'r-copy') {
+    const out = $('r-out'), done = () => { $('r-copied').textContent = 'Copied'; };
+    const fallback = () => { out.focus(); out.select(); $('r-copied').textContent = 'Selected. Press copy on your keyboard.'; };
+    try { navigator.clipboard.writeText(out.value).then(done, fallback); } catch (x) { fallback(); }
+  }
+});
+document.addEventListener('change', e => {
+  const t = e.target;
+  if (t.id === 'country') {
+    if (!COUNTRY[t.value] || t.value === state.country) return;
+    state.country = t.value;
+    state.sales = cfg().defSales[state.path];
+    chrome(); save(); RENDER[current()]();
+  }
+  else if (t.name === 'sales') { state.sales = t.value; refresh(); }
+  else if (t.name === 'team') { state.team = t.value; refresh(); }
+  else if (t.name === 'channel') {
+    state.channels = Array.from(document.querySelectorAll('input[name="channel"]:checked')).map(i => i.value);
+    refresh();
+  }
+  else if (t.id === 'f-band') permit();
+  else if (t.id === 'c-comm') calc();
+});
+document.addEventListener('input', e => {
+  const t = e.target;
+  if (t.id === 'svc-search') {
+    state.q = t.value; save();
+    const pos = t.selectionStart; renderServices();
+    const n = $('svc-search'); n.focus(); try { n.setSelectionRange(pos, pos); } catch (x) {}
+  } else if (t.id && t.id.indexOf('c-') === 0) calc();
+});
+document.addEventListener('submit', e => { if (e.target.id === 'req-form') { e.preventDefault(); buildRequest(); } });
+
+show(false);
+</script>
+
+</body>
+</html>
