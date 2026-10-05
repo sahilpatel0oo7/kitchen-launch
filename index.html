@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="Licences, branding, online ordering, marketing and content services for people who want to earn from cooking. India, the United States and other countries.">
+<meta name="description" content="Licences, branding, online ordering, marketing and content services for people who want to earn from cooking. India, the United States, the United Kingdom and other countries.">
 <meta property="og:title" content="Kitchen Launch">
 <meta property="og:description" content="Get paid for the food you already cook. Every step to start a food business, with its cost.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23E6A80C'/%3E%3Cpath d='M10 6h12v4H10zM8 10h16v6H8zM8 16h16v6H8zM10 22h12v4H10z' fill='none' stroke='%23241A00' stroke-width='2' stroke-linejoin='round'/%3E%3C/svg%3E">
@@ -185,7 +185,7 @@ footer a{color:var(--leaf)}
       <a href="#plan">My plan<span class="count num" id="count">0</span></a>
     </nav>
     <label class="country"><svg viewBox="0 0 16 16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="currentColor" stroke-width="1.3"/><path d="M1.5 8h13M8 1.5c2.2 2 2.2 11 0 13M8 1.5c-2.2 2-2.2 11 0 13" fill="none" stroke="currentColor" stroke-width="1.3"/></svg><span class="sr">Country</span>
-      <select id="country"><option value="in">India</option><option value="us">United States</option><option value="intl">Other countries</option></select></label>
+      <select id="country"><option value="in">India</option><option value="us">United States</option><option value="uk">United Kingdom</option><option value="intl">Other countries</option></select></label>
   </div>
 </header>
 
@@ -236,7 +236,19 @@ const S = [
   {id:'ins', cat:'legal', per:'once',
    us:{name:'Liability Insurance Setup', price:59, time:'2–3 days', gov:'Premium paid to the insurer',
      blurb:'Shared kitchens, farmers markets and catering clients ask for proof of cover.',
-     gets:['Quotes from 3 food-business insurers','General and product liability policy','Certificate of insurance on request']}},
+     gets:['Quotes from 3 food-business insurers','General and product liability policy','Certificate of insurance on request']},
+   uk:{name:'Liability Insurance Setup', price:39, time:'2–3 days', gov:'Premium paid to the insurer',
+     blurb:'Markets, catering clients and landlords ask for proof of cover.',
+     gets:['Quotes from 3 food-business insurers','Public and product liability cover','Employers\' liability if you hire staff']}},
+  // UK only
+  {id:'council', cat:'legal', per:'once',
+   uk:{name:'Council Food Business Registration', price:49, time:'File at least 28 days before you trade', gov:'Registration is free',
+     blurb:'Every food business must register with its local council, and that includes home kitchens.',
+     gets:['Registration filed with your local authority','Home-kitchen checks: tenancy or mortgage, and home insurance','What to expect at your first inspection']}},
+  {id:'hygiene', cat:'legal', per:'once',
+   uk:{name:'Food Hygiene & Safety Pack', price:99, time:'3–5 days', gov:'Course fees extra',
+     blurb:'What the environmental health officer will ask to see when they visit.',
+     gets:['Level 2 Food Hygiene course booking','Food safety procedures based on Safer Food, Better Business','Allergen chart covering the 14 allergens']}},
   // Other countries only
   {id:'guide', cat:'legal', per:'once',
    intl:{name:'Licence & Registration Research', price:199, time:'5–7 days', gov:'Government fees extra',
@@ -249,21 +261,30 @@ const S = [
      gets:['Udyam (MSME) registration','Help opening a current account','Invoice and receipt format']},
    us:{name:'Sole Proprietor + DBA Setup', price:79, time:'3–7 days', gov:'DBA filing fee extra',
      blurb:'Trade under your brand name without forming a company.',
-     gets:['DBA ("doing business as") filing','Free EIN from the IRS','Help opening a business bank account']}},
+     gets:['DBA ("doing business as") filing','Free EIN from the IRS','Help opening a business bank account']},
+   uk:{name:'Sole Trader Registration', price:49, time:'1–2 weeks', gov:'Free with HMRC',
+     blurb:'The simplest way to trade. You must tell HMRC once you earn more than £1,000 a year from it.',
+     gets:['Self Assessment registration with HMRC','Help opening a business bank account','Invoice and record-keeping template']}},
   {id:'biz-co', cat:'legal', per:'once',
    in:{name:'LLP / Pvt Ltd / OPC Registration', price:8999, time:'10–15 days', gov:'Govt and stamp fees extra',
      blurb:'India has no LLC. An LLP, private limited company or one person company gives the same limited liability.',
      gets:['Name approval, DSC and DIN','Incorporation certificate, PAN and TAN','Partnership or shareholder agreement draft']},
    us:{name:'LLC Formation', price:149, time:'3–10 business days', gov:'State filing fee about $35–$500',
      blurb:'Keeps your home and savings separate from the business if something goes wrong.',
-     gets:['Articles of organization filed with your state','EIN and operating agreement','Registered agent for the first year']}},
+     gets:['Articles of organization filed with your state','EIN and operating agreement','Registered agent for the first year']},
+   uk:{name:'Limited Company Registration', price:99, time:'1–3 working days', gov:'Companies House fee extra',
+     blurb:'Keeps your personal assets separate from the business.',
+     gets:['Incorporation at Companies House','Corporation Tax registration with HMRC','Shareholder agreement draft']}},
   {id:'tax', cat:'legal', per:'once',
    in:{name:'GST Registration', price:1499, time:'5–7 working days', gov:'No govt fee',
      blurb:'Needed once sales cross ₹20 lakh a year for services or ₹40 lakh for goods. Delivery platforms often ask for it.',
      gets:['GSTIN application','Correct HSN / SAC codes for your menu','First-invoice walkthrough']},
    us:{name:'Sales Tax Permit', price:79, time:'1–10 days', gov:'Usually free from the state',
      blurb:'Most states tax prepared food. You collect the tax and pay it to the state.',
-     gets:['Seller\'s permit application','Tax rates set up in your checkout','Filing calendar']}},
+     gets:['Seller\'s permit application','Tax rates set up in your checkout','Filing calendar']},
+   uk:{name:'VAT Registration', price:79, time:'2–4 weeks', gov:'No government fee',
+     blurb:'Compulsory once sales pass £90,000 in 12 months. Hot takeaway food carries VAT.',
+     gets:['VAT registration with HMRC','The right VAT rate for each item you sell','Making Tax Digital software setup']}},
   {id:'local', cat:'legal', per:'once',
    in:{name:'Trade Licence / Shop & Establishment', price:2499, time:'1–3 weeks', gov:'Fee set by your city or state',
      blurb:'Local permission to run a commercial kitchen or outlet.',
@@ -275,7 +296,9 @@ const S = [
    in:{name:'Trademark Filing', price:2999, time:'2–3 days to file', gov:'Govt fee ₹4,500 per class for individuals and MSMEs',
      gets:['Name availability search','Application in the right class','Use of the TM mark from the filing date']},
    us:{name:'Trademark Filing', price:249, time:'3–5 days to file', gov:'USPTO fee from $350 per class',
-     gets:['Name clearance search','USPTO application in the right class','Use of the TM mark from the filing date']}},
+     gets:['Name clearance search','USPTO application in the right class','Use of the TM mark from the filing date']},
+   uk:{name:'Trademark Filing', price:199, time:'3–5 days to file', gov:'IPO fee from £170 for one class',
+     gets:['Name clearance search','UK IPO application in the right class','Use of the TM mark from the filing date']}},
 
   {id:'brand-kit', cat:'brand', per:'once', name:'Name, Logo & Brand Kit', time:'7 days',
    blurb:'A name people remember and a look that works on a box, a bag and a phone screen.',
@@ -285,7 +308,8 @@ const S = [
    blurb:'Labels that carry everything a packaged-food label must show.',
    in:{price:4999, gets:['FSSAI number, veg / non-veg mark, ingredients and allergens','Net quantity, MRP, dates and nutrition table','Print-ready files and vendor list']},
    us:{price:349, gets:['Product name, net weight, ingredients and the 9 major allergens','Business name and address, plus the home-kitchen statement where required','Print-ready files and vendor list']},
-   intl:{gets:['Ingredients, allergens, net quantity and dates','Laid out to the label rules of your country','Print-ready files']}},
+   intl:{gets:['Ingredients, allergens, net quantity and dates','Laid out to the label rules of your country','Print-ready files']},
+   uk:{gets:['Full ingredient list with the 14 allergens emphasised','Name, weight, dates and your business address','Print-ready files and vendor list']}},
   {id:'menu', cat:'brand', per:'once', name:'Menu Planning & Design', time:'4 days',
    blurb:'A short menu that is easy to cook in batches and easy to choose from.',
    in:{price:2999, gets:['Dish list with combos and thalis','Printed and WhatsApp-ready menu','Delivery-app menu sheet']},
@@ -294,7 +318,8 @@ const S = [
    blurb:'20 dishes shot in your own kitchen.',
    in:{price:7999, gets:['20 edited photos','Sizes for Swiggy, Zomato, Instagram and web','10 short clips for reels']},
    us:{price:499, gets:['20 edited photos','Sizes for DoorDash, Uber Eats, Instagram and web','10 short clips for reels']},
-   intl:{gets:['20 edited photos','Sizes for delivery apps, Instagram and web','10 short clips for reels']}},
+   intl:{gets:['20 edited photos','Sizes for delivery apps, Instagram and web','10 short clips for reels']},
+   uk:{gets:['20 edited photos','Sizes for Deliveroo, Just Eat, Instagram and web','10 short clips for reels']}},
 
   {id:'dm', cat:'online', per:'once', time:'2 days', blurb:'Take orders where your customers already are.',
    in:{name:'WhatsApp Ordering Setup', price:1999, gets:['WhatsApp Business profile and catalogue','Quick replies, greeting and away messages','Order form and broadcast lists']},
@@ -311,7 +336,7 @@ const S = [
    us:{price:79, blurb:'Show up when someone nearby searches "meal prep near me".'}},
   {id:'agg', cat:'online', per:'once', time:'7–15 days', blurb:'Get listed with the right menu, photos and prices.',
    gets:['Partner applications','Menu upload with photos','Pricing that covers platform commission'],
-   in:{name:'Swiggy & Zomato Onboarding', price:2999}, us:{name:'DoorDash, Uber Eats & Grubhub Onboarding', price:199}, intl:{name:'Delivery App Onboarding'}},
+   in:{name:'Swiggy & Zomato Onboarding', price:2999}, us:{name:'DoorDash, Uber Eats & Grubhub Onboarding', price:199}, intl:{name:'Delivery App Onboarding'}, uk:{name:'Deliveroo, Just Eat & Uber Eats Onboarding'}},
   {id:'ondc', cat:'online', per:'once',
    in:{name:'ONDC Onboarding', price:2499, time:'7–10 days', blurb:'Sell through ONDC buyer apps, usually at a lower commission.',
      gets:['Seller-app selection','Catalogue upload','Delivery partner mapping']}},
@@ -344,7 +369,10 @@ const S = [
   {id:'market', cat:'marketing', per:'once', local:true,
    us:{name:'Farmers Market Starter', price:199, time:'1–2 weeks', gov:'Booth fees extra',
      blurb:'The most common first sales channel for cottage food.',
-     gets:['Applications to 3 local markets','Booth, signage and sampling checklist','Price board and card reader setup']}},
+     gets:['Applications to 3 local markets','Booth, signage and sampling checklist','Price board and card reader setup']},
+   uk:{name:'Market Stall Starter', price:149, time:'1–2 weeks', gov:'Pitch fees extra',
+     blurb:'Street food and farmers markets are a low-cost way to find your first regulars.',
+     gets:['Applications to 3 local markets','Street trading licence check with your council','Stall, signage and card reader setup']}},
 
   {id:'cost', cat:'ops', per:'once', name:'Recipe Costing & Pricing', time:'4 days',
    blurb:'Know your profit on every plate before you set a price.',
@@ -357,11 +385,15 @@ const S = [
    in:{name:'Kitchen Setup & Hygiene', price:3499, blurb:'Lay out the kitchen for batch cooking and pass an inspection.',
      gets:['Equipment list by budget','FSSAI hygiene checklist','FoSTaC food-safety training guidance']},
    us:{name:'Kitchen Workflow & Inspection Prep', price:249, blurb:'Set up for batch cooking and pass the health inspection.',
-     gets:['Equipment list by budget','Health-inspection checklist','Temperature and cleaning logs']}},
+     gets:['Equipment list by budget','Health-inspection checklist','Temperature and cleaning logs']},
+   uk:{name:'Kitchen Setup & Inspection Prep', gets:['Equipment list by budget','Checklist for your council hygiene inspection','Cleaning and temperature records']}},
   {id:'commissary', cat:'ops', per:'once', local:true,
    us:{name:'Commissary Kitchen Match', price:149, time:'1 week', gov:'Rental extra, often $15–$40 an hour',
      blurb:'A licensed shared kitchen is the fastest legal way to cook meals for sale.',
-     gets:['Shortlist of licensed shared kitchens near you','Tour and rate comparison','Commissary agreement for your permit']}},
+     gets:['Shortlist of licensed shared kitchens near you','Tour and rate comparison','Commissary agreement for your permit']},
+   uk:{name:'Commercial Kitchen Match', price:119, time:'1 week', gov:'Rental extra',
+     blurb:'A shared or dark kitchen gives you more space than home and a ready delivery area.',
+     gets:['Shortlist of shared and dark kitchens near you','Viewing and rate comparison','Contract check before you sign']}},
   {id:'deliv', cat:'ops', per:'once', name:'Delivery Setup', time:'3 days',
    in:{price:1999, blurb:'Own rider, a delivery partner, or both.',
      gets:['Route and time-slot plan','Accounts with third-party delivery partners','Packing so food arrives hot and unspilled']},
@@ -370,7 +402,8 @@ const S = [
   {id:'books', cat:'ops', per:'month', time:'Starts next month', blurb:'Sales, expenses and returns kept in order.',
    in:{name:'Bookkeeping & GST Filing', price:1499, gets:['Monthly profit and loss','GST returns filed on time','Income tax return help at year end']},
    us:{name:'Bookkeeping & Sales Tax Filing', price:149, gets:['Monthly profit and loss','Sales tax returns filed on time','Quarterly estimated-tax reminders']},
-   intl:{name:'Bookkeeping', gets:['Monthly profit and loss','Sales and expense records ready for your accountant','Tax deadline reminders']}},
+   intl:{name:'Bookkeeping', gets:['Monthly profit and loss','Sales and expense records ready for your accountant','Tax deadline reminders']},
+   uk:{name:'Bookkeeping & Self Assessment', gets:['Monthly profit and loss','Records kept the way HMRC expects','Self Assessment return help each January']}},
 
   {id:'yt', cat:'creator', per:'once', time:'4 days', blurb:'A channel that looks like a show from the first video.',
    gets:['Name, banner, intro and thumbnail style','Phone filming and lighting guide','First 3 video outlines'],
@@ -478,6 +511,44 @@ const COUNTRY = {
     homeFaq:'For shelf-stable food such as baked goods and jams, usually yes, under your state\'s cottage food law. Meals generally need a licensed kitchen, which you can rent by the hour.',
     foot:'Service prices are starting prices and exclude government fees. Food rules are set state by state and county by county, so confirm them with your local health department. The <a href="https://www.sba.gov" target="_blank" rel="noopener">SBA</a> lists licences and permits by state, and the <a href="https://www.irs.gov" target="_blank" rel="noopener">IRS</a> issues EINs for free.'
   },
+  uk:{
+    label:'United Kingdom', place:'the United Kingdom', sym:'£', loc:'en-GB', step:0.5, dec:2,
+    eyebrow:'For home cooks, meal preppers and food creators',
+    paths:[
+      {id:'tiffin', name:'Meal prep service', sub:'Weekly meal plans, collection or delivery'},
+      {id:'cloud', name:'Dark kitchen', sub:'Delivery-only brand on Deliveroo and Just Eat'},
+      {id:'home', name:'Home food brand', sub:'Bakes, preserves, snacks, sweets'},
+      {id:'catering', name:'Catering', sub:'Party, office and event orders'},
+      {id:'creator', name:'Cooking content', sub:'YouTube, TikTok, Instagram, brand deals'}],
+    q1:'Where will you cook?',
+    q1opts:{low:'In my home kitchen', high:'In a rented or commercial kitchen', none:'I am not selling food yet'},
+    defSales:{tiffin:'low', cloud:'high', home:'low', catering:'low', creator:'none'},
+    channels:[{id:'direct', name:'WhatsApp, Instagram and collection'},{id:'agg', name:'Deliveroo / Just Eat / Uber Eats'},{id:'site', name:'My own website or app'},{id:'retail', name:'Markets and shops'}],
+    bundles:[
+      {name:'Meal Prep Starter', who:'One cook, one kitchen, 50 to 200 meals a week.', ids:['council','hygiene','biz-prop','dm','pay','sub','cost']},
+      {name:'Dark Kitchen Launch', who:'A delivery-only brand going live on Deliveroo and Just Eat.', ids:['council','hygiene','commissary','brand-kit','menu','photo','agg','cost']},
+      {name:'Home Food Brand', who:'Bakes, preserves or snacks made at home and sold direct or at markets.', ids:['council','hygiene','brand-kit','pack','pay','market','ins']},
+      {name:'Catering Desk', who:'Party, office and event orders taken by phone and email.', ids:['council','hygiene','ins','menu','photo','gbp','cost']},
+      {name:'Creator Kit', who:'You want to earn from recipes and videos, not from selling food.', ids:['yt','cal','edit','mon']}],
+    calc:{ing:3.5, pack:0.7, del:0, orders:40, days:22, fixed:1200,
+      comm:[[0,'Direct orders (0% commission)'],[30,'Delivery app (about 30%)'],[3,'Own website (about 3% card fees)']],
+      note:'Fixed costs are kitchen rent, wages, insurance and energy. Commission rates differ by platform and plan.',
+      example:'an example meal prep kitchen'},
+    permit:{title:'What do I need to sell food legally?', sub:'In the UK you register with your council instead of applying for a licence, and registering is free.', label:'Where you will cook',
+      note:'Rules differ slightly in Scotland, Wales and Northern Ireland. Your local council confirms what applies to you.',
+      opts:[
+        {label:'My home kitchen', name:'Council registration', valid:'no renewal, but tell the council if anything changes', fee:'Free', time:'At least 28 days before you trade', svc:'council',
+          docs:['Your address and the foods you will make','Permission from your landlord or mortgage lender','Level 2 Food Hygiene certificate','Written food safety procedures and an allergen list']},
+        {label:'A commercial kitchen', name:'Council registration', valid:'no renewal, but tell the council if anything changes', fee:'Free', time:'At least 28 days before you trade', svc:'council',
+          docs:['Kitchen address and your rental agreement','Written food safety procedures','Hygiene certificates for everyone who handles food','Allergen information for every dish']},
+        {label:'A market stall or van', name:'Registration + street trading licence', valid:'the licence is renewed with your council', fee:'Registration is free. Licence fee set by the council', time:'4 to 8 weeks', svc:'market',
+          docs:['Registration with the council where the stall or van is kept','Street trading licence or a market pitch','Public liability insurance','Gas safety certificate for LPG equipment']}]},
+    phone:'Phone or WhatsApp number', about:'Example: Caribbean meal prep for gym-goers in Leeds, 40 meals a week to start',
+    send:'Online booking is not connected yet. Copy the request and send it to our team by WhatsApp or email.',
+    search:'Search services, e.g. council, VAT, website',
+    homeFaq:'Yes. You can run a food business from home once you register with your local council, which is free. An officer will visit and give you a food hygiene rating.',
+    foot:'Service prices are starting prices and exclude government fees. Confirm food rules with your local council and on <a href="https://www.food.gov.uk" target="_blank" rel="noopener">food.gov.uk</a>. Tax and company rules are on <a href="https://www.gov.uk" target="_blank" rel="noopener">gov.uk</a>.'
+  },
   intl:{
     label:'Other country', place:'your country', sym:'$', loc:'en-US', step:0.5, dec:2,
     eyebrow:'For home cooks, meal sellers and food creators',
@@ -520,13 +591,15 @@ function guessCountry(){
   try {
     const tz = Intl.DateTimeFormat().resolvedOptions().timeZone || '', lang = navigator.language || '';
     if (tz === 'Asia/Kolkata' || tz === 'Asia/Calcutta') return 'in';
+    if (tz === 'Europe/London' || tz === 'Europe/Belfast') return 'uk';
     if (/-US$/i.test(lang) && (tz.indexOf('America/') === 0 || tz === 'Pacific/Honolulu')) return 'us';
   } catch (e) {}
   return 'intl';
 }
-let state = {country:guessCountry(), path:'tiffin', sales:'low', channels:['direct'], team:'solo', carts:{in:[], us:[], intl:[]}, cat:'all', q:''};
+let state = {country:guessCountry(), path:'tiffin', sales:'low', channels:['direct'], team:'solo', carts:{in:[], us:[], uk:[], intl:[]}, cat:'all', q:''};
 const CONTACT = {whatsapp:'', email:''};  /* whatsapp: digits with country code, e.g. 919876543210 */
-const CODES = ['in','us','intl'];
+const CODES = ['in','us','uk','intl'];
+const gbp = n => Math.max(29, Math.round(n * 0.8 / 10) * 10 - 1);  /* UK price where none is set */
 state.sales = COUNTRY[state.country].defSales.tiffin;
 try {
   const saved = JSON.parse(localStorage.getItem('kitchen-launch') || 'null');
@@ -535,11 +608,13 @@ try {
 function save(){ try { localStorage.setItem('kitchen-launch', JSON.stringify(state)); } catch (e) {} }
 
 const LISTS = {}, MAPS = {};
-const offered = (s, c) => c === 'intl' ? ((s.us && s.cat !== 'legal' && !s.local) || (!s.us && !s.in && !!s.intl)) : !!s[c];
+const anywhere = s => !!s.us && s.cat !== 'legal' && !s.local;
+const offered = (s, c) => c === 'intl' ? (anywhere(s) || (!s.us && !s.in && !s.uk && !!s.intl)) : c === 'uk' ? (!!s.uk || anywhere(s)) : !!s[c];
 CODES.forEach(c => {
   LISTS[c] = S.filter(s => offered(s, c)).map(s => {
-    const m = c === 'intl' ? Object.assign({}, s, s.us, s.intl) : Object.assign({}, s, s[c]);
-    delete m.in; delete m.us; delete m.intl; delete m.local; return m;
+    const m = c === 'intl' ? Object.assign({}, s, s.us, s.intl) : c === 'uk' ? Object.assign({}, s, s.us, s.intl, s.uk) : Object.assign({}, s, s[c]);
+    if (c === 'uk' && !(s.uk && s.uk.price)) m.price = gbp(s.us.price);
+    delete m.in; delete m.us; delete m.uk; delete m.intl; delete m.local; return m;
   });
   MAPS[c] = Object.fromEntries(LISTS[c].map(s => [s.id, s]));
   state.carts[c] = (state.carts[c] || []).filter(id => MAPS[c][id]);
@@ -570,13 +645,18 @@ function buildRoadmap(st){
     if (seen[id]) { if (need === 'must') seen[id].need = 'must'; return; }
     seen[id] = {id, need, why}; tiers[t].items.push(seen[id]);
   };
-  const INTL = st.country === 'intl', US = st.country !== 'in', p = st.path, sells = st.sales !== 'none', ch = new Set(sells ? st.channels : []);
+  const INTL = st.country === 'intl', UK = st.country === 'uk', US = st.country !== 'in', p = st.path, sells = st.sales !== 'none', ch = new Set(sells ? st.channels : []);
   const meals = p === 'tiffin' || p === 'cloud' || p === 'catering';
 
   if (!sells) {
-    tiers[0].note = US ? 'You do not need a food permit to post recipes. You will need one the day you start selling food.'
+    tiers[0].note = UK ? 'You do not need to register as a food business to post recipes. You will the day you start selling food.'
+                  : US ? 'You do not need a food permit to post recipes. You will need one the day you start selling food.'
                        : 'You do not need FSSAI to post recipes. You will need it the day you start selling food.';
     add(0,'guide','good','Tells you how to register as self-employed so you can invoice brands.');
+  } else if (UK) {
+    add(0,'council','must','It is the law for every food business, and it is free. Register at least 28 days before your first sale.');
+    add(0,'hygiene','must','After you register, the council inspects you and gives a hygiene rating that customers can look up.');
+    if (st.sales === 'high') add(0,'commissary','good','Compare shared and dark kitchens before you sign a contract.');
   } else if (INTL) {
     add(0,'guide','must','Food licence, business registration and tax rules differ in every country. We find yours and prepare the applications.');
   } else if (US) {
@@ -596,6 +676,13 @@ function buildRoadmap(st){
 
   if (INTL) {
     if (st.team === 'partners') tiers[0].note = 'With partners or investors you will also need a registered company. The research covers which type fits.';
+  } else if (UK) {
+    if (st.team === 'partners') add(0,'biz-co','must','A limited company sets out who owns what and keeps personal assets separate.');
+    else add(0,'biz-prop','good','You must tell HMRC once you earn more than £1,000 a year from it.');
+    if (sells) {
+      add(0,'tax','good','Compulsory once sales pass £90,000 in 12 months.');
+      add(0,'ins', (p === 'catering' || ch.has('retail')) ? 'must' : 'good', 'Markets, catering clients and landlords ask for proof of cover.');
+    }
   } else if (US) {
     if (st.team === 'partners') add(0,'biz-co','must','An LLC sets out who owns what and keeps personal savings separate from business debts.');
     else add(0,'biz-co','good', sells ? 'Protects your home and savings if a customer makes a claim.' : 'Lets you sign brand deals and keep that income separate.');
@@ -626,7 +713,7 @@ function buildRoadmap(st){
     if (ch.has('direct')) { add(2,'dm','must', US ? 'An order form and auto-replies save hours every day.' : 'Catalogue, quick replies and broadcast lists save hours every day.'); add(2,'pay','must', US ? 'Card payments and recurring billing end the payment chase.' : 'A QR and auto-pay end the monthly payment chase.'); }
     if (ch.has('agg')) { add(2,'agg','must','Listing setup decides how often you appear in search.'); add(2,'ondc','good','A second channel with lower commission.'); }
     if (ch.has('site')) { add(2,'site','must','Your own orders with no commission.'); add(2,'pay','must','Online payment on your own site.'); add(2,'app','good','Worth it once you have regular repeat customers.'); }
-    if (ch.has('retail')) { add(2,'market','must','Markets are where most cottage food brands find their first regulars.'); add(2,'pay','must','Shoppers expect to tap a card.'); }
+    if (ch.has('retail')) { add(2,'market','must','Markets are where many small food brands find their first regulars.'); add(2,'pay','must','Shoppers expect to tap a card.'); }
     if (p !== 'home' || ch.has('direct')) add(2,'gbp','good','Free listing for people searching nearby.');
     if (!tiers[2].items.length) tiers[2].note = 'Pick at least one place to sell and this tier fills in.';
   }
@@ -710,7 +797,7 @@ function renderStart(){
       '<details><summary>Can I start from my home kitchen?</summary><p>' + esc(c.homeFaq) + '</p></details>' +
       '<details><summary>Can I take just one service?</summary><p>Yes. Every service is priced on its own. Bundles are only a shortcut for adding several at once.</p></details>' +
       '<details><summary>Are government fees included?</summary><p>No. Our prices cover our work. Fees charged by government offices, platforms and insurers are extra, and they are shown next to each service.</p></details>' +
-      '<details><summary>Which countries do you work in?</summary><p>India and the United States have full licence and registration services. Everywhere else, branding, websites, marketing and content work the same way, and we research the licences for your country. Change the country at the top of the page.</p></details>' +
+      '<details><summary>Which countries do you work in?</summary><p>India, the United States and the United Kingdom have full licence and registration services. Everywhere else, branding, websites, marketing and content work the same way, and we research the licences for your country. Change the country at the top of the page.</p></details>' +
     '</div>';
 }
 
@@ -813,7 +900,7 @@ function renderPlan(){
       '<div class="fields">' +
         '<label class="field">Your name<input id="r-name" type="text" autocomplete="name" required></label>' +
         '<label class="field">' + esc(c.phone) + '<input id="r-phone" type="tel" inputmode="tel" autocomplete="tel" required></label>' +
-        '<label class="field">' + (state.country === 'us' ? 'City and state' : state.country === 'intl' ? 'City and country' : 'City') + '<input id="r-city" type="text" autocomplete="address-level2"></label>' +
+        '<label class="field">' + (state.country === 'us' ? 'City and state' : state.country === 'uk' ? 'Town or city' : state.country === 'intl' ? 'City and country' : 'City') + '<input id="r-city" type="text" autocomplete="address-level2"></label>' +
       '</div>' +
       '<label class="field">What do you cook and who will buy it?<textarea id="r-about" rows="3" placeholder="' + esc(c.about) + '"></textarea></label>' +
       '<p class="note" id="r-err" role="alert" hidden></p>' +
