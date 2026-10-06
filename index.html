@@ -774,7 +774,7 @@ function renderStart(){
             '<div class="row-why">' + esc(it.why) + '</div></div>' +
             '<div class="row-side">' + priceHtml(s) + addBtn(s.id) + '</div></div>'); }).join('') + '</div>' : '') +
         '</div>').join('') +
-      '<div class="carrier-foot"><p><b class="num">' + musts.length + ' must-haves</b> come to <b class="num">' + money(mt.once) + '</b>' + (mt.month ? ' plus <b class="num">' + money(mt.month) + '</b> a month' : '') + ', before government fees.</p>' +
+      '<div class="carrier-foot"><p><b class="num">' + musts.length + ' must-haves</b> come to <b class="num">' + money(mt.once) + '</b>' + (mt.month ? ' plus <b class="num">' + money(mt.month) + '</b> a month' : '') + (st.country === 'in' ? ', before government fees' : '') + '.</p>' +
       '<button type="button" class="btn primary big" id="add-musts"' + (allMustIn ? ' disabled' : '') + '>' + (allMustIn ? 'Must-haves are in your plan' : 'Add all must-haves') + '</button></div>' +
     '</div></div>' +
 
@@ -933,7 +933,7 @@ function buildRequest(){
   if (t.disc) lines.push('Member discount (' + DISCOUNT + '%): -' + money(t.disc));
   lines.push('One-time total: ' + money(t.once - t.disc));
   if (t.month) lines.push('Monthly total: ' + money(t.month));
-  lines.push('Government fees extra.');
+  if (state.country === 'in') lines.push('Government fees extra.');
   const text = lines.join('\n');
   $('r-out').value = text;
   if (CONTACT.whatsapp) $('r-wa').href = 'https://wa.me/' + CONTACT.whatsapp + '?text=' + encodeURIComponent(text);
