@@ -612,7 +612,7 @@ function guessCountry(){
   return 'intl';
 }
 let state = {country:guessCountry(), path:'tiffin', sales:'low', channels:['direct'], team:'solo', carts:{in:[], us:[], uk:[], intl:[]}, cat:'all', q:''};
-const CONTACT = {whatsapp:'', email:''};  /* whatsapp: digits with country code, e.g. 919876543210 */
+const CONTACT = {whatsapp:'917489791016', display:'+91 74897 91016', email:''};  /* whatsapp: digits with country code, e.g. 919876543210 */
 const CODES = ['in','us','uk','intl'];
 const gbp = n => Math.max(19, Math.round(n * 0.8 / 10) * 10 - 1);  /* UK price where none is set */
 state.sales = COUNTRY[state.country].defSales.tiffin;
@@ -948,7 +948,7 @@ function current(){ const h = location.hash.replace('#',''); return VIEWS.includ
 function chrome(){
   $('count').textContent = cart().length;
   $('mark').hidden = state.country !== 'in';
-  $('foot').innerHTML = cfg().foot;
+  $('foot').innerHTML = cfg().foot + (CONTACT.whatsapp ? ' Questions? Message us on WhatsApp: <a href="https://wa.me/' + CONTACT.whatsapp + '" target="_blank" rel="noopener">' + esc(CONTACT.display) + '</a>.' : '');
   $('country').value = state.country;
 }
 function show(scroll){
